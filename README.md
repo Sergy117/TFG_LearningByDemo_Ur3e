@@ -44,8 +44,8 @@ TFG_UR3e_Teleoperation/
 ├── 🤖 robot_control/   
 │   └── src/                 # ROS scripts for controlling the robot (e.g., dmpplayer.py).  
 |                  
-├── 👁️ vision_system/
-│   └── src/                 # Scripts for capturing demonstrations (e.g., main_script_final.py).
+├── 👁️ vision_system/   
+│   └── src/                 # Scripts for capturing demonstrations (e.g., main_script_final.py).   
 |                               
 ├── 🎓 learning_and_validation/                     
 │   └── src/                 # Scripts to validate data and train DMPs (e.g., learn_dmp.py).
@@ -59,8 +59,8 @@ TFG_UR3e_Teleoperation/
 │   ├── calibration_files/   # .npy files from the calibrations.                    
 │   └── learned_dmps/        # .pkl files of the learned DMPs.          
 │                                                                           
-└── 📝 documentation/   
-    └── (Images, GIFs, and other resources for the TFG document).
+└── 📝 documentation/       
+    └── (Images, GIFs, and other resources for the TFG document).   
 
 🚀 Getting Started
 
