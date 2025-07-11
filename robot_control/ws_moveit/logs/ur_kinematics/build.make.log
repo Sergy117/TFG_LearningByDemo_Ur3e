@@ -1,0 +1,20 @@
+[  5%] Built target ur30_kin
+[ 10%] Built target ur20_kin
+[ 15%] Built target ur15_kin
+[ 20%] Built target ur16e_kin
+[ 25%] Built target ur10e_kin
+[ 30%] Built target ur10_kin
+[ 35%] Built target ur3e_kin
+[ 40%] Built target ur3_kin
+[ 45%] Built target ur5_kin
+[ 50%] Built target ur5e_kin
+[ 55%] Built target ur30_moveit_plugin
+[ 60%] Built target ur20_moveit_plugin
+[ 65%] Built target ur15_moveit_plugin
+[ 70%] Built target ur16e_moveit_plugin
+[ 75%] Built target ur10e_moveit_plugin
+[ 80%] Built target ur10_moveit_plugin
+[ 85%] Built target ur3e_moveit_plugin
+[ 90%] Built target ur3_moveit_plugin
+[ 95%] Built target ur5_moveit_plugin
+[100%] Built target ur5e_moveit_plugin

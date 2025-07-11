@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/gripper_action/include/gripper_action/gripperMoveActionGoal.h

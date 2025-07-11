@@ -1,0 +1,2 @@
+set(onrobot_gripper_msgs_MESSAGE_FILES "msg/JointControllerState.msg;msg/OnrobotGripperCommand.msg;msg/OnrobotGripperCommandAction.msg;msg/OnrobotGripperCommandActionGoal.msg;msg/OnrobotGripperCommandActionResult.msg;msg/OnrobotGripperCommandActionFeedback.msg;msg/OnrobotGripperCommandGoal.msg;msg/OnrobotGripperCommandResult.msg;msg/OnrobotGripperCommandFeedback.msg")
+set(onrobot_gripper_msgs_SERVICE_FILES "")

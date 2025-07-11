@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/onrobot_gripper_msgs/lib/python3/dist-packages/onrobot_gripper_msgs/msg/_OnrobotGripperCommandResult.py

@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/tm_msgs/lib/python3/dist-packages/tm_msgs/srv/_SetPositions.py

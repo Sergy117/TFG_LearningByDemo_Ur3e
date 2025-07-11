@@ -1,0 +1,8 @@
+prefix=/home/robotica/ws_moveit/devel/.private/tm_gazebo
+
+Name: tm_gazebo
+Description: Description of tm_gazebo
+Version: 1.1.5
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

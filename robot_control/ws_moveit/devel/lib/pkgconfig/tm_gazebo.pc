@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/tm_gazebo/lib/pkgconfig/tm_gazebo.pc

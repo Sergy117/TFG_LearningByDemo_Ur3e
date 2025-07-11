@@ -1,0 +1,8 @@
+prefix=/home/robotica/ws_moveit/install
+
+Name: onrobot_gripper_msgs
+Description: Description of onrobot_gripper_msgs
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: actionlib_msgs trajectory_msgs geometry_msgs message_runtime

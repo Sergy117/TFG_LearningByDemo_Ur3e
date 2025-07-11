@@ -1,0 +1,38 @@
+[  0%] Built target _gripper_action_generate_messages_check_deps_gripperMoveResult
+[  0%] Built target _gripper_action_generate_messages_check_deps_gripperGoal
+[  0%] Built target actionlib_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target tm_msgs_generate_messages_eus
+[  0%] Built target _gripper_action_generate_messages_check_deps_gripperMoveActionResult
+[  0%] Built target sensor_msgs_generate_messages_eus
+[  0%] Built target _gripper_action_generate_messages_check_deps_gripperMoveActionGoal
+[  0%] Built target _gripper_action_generate_messages_check_deps_gripperMoveActionFeedback
+[  0%] Built target _gripper_action_generate_messages_check_deps_gripperMoveAction
+[  0%] Built target _gripper_action_generate_messages_check_deps_gripperMoveGoal
+[  0%] Built target _gripper_action_generate_messages_check_deps_gripperMoveFeedback
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target actionlib_msgs_generate_messages_py
+[  0%] Built target sensor_msgs_generate_messages_py
+[  0%] Built target tm_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target actionlib_msgs_generate_messages_nodejs
+[  0%] Built target sensor_msgs_generate_messages_nodejs
+[  0%] Built target tm_msgs_generate_messages_nodejs
+[  0%] Built target actionlib_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target sensor_msgs_generate_messages_lisp
+[  0%] Built target tm_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target actionlib_msgs_generate_messages_cpp
+[  0%] Built target sensor_msgs_generate_messages_cpp
+[  0%] Built target tm_msgs_generate_messages_cpp
+[ 19%] Built target gripper_action_generate_messages_eus
+[ 39%] Built target gripper_action_generate_messages_py
+[ 56%] Built target gripper_action_generate_messages_nodejs
+[ 73%] Built target gripper_action_generate_messages_lisp
+[ 91%] Built target gripper_action_generate_messages_cpp
+[ 93%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/gripper_action/lib/gripper_action/gripper_server[0m
+[ 95%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/gripper_action/lib/gripper_action/gripper_client[0m
+[ 97%] Built target gripper_client
+[ 97%] Built target gripper_action_generate_messages
+[100%] Built target gripper_server

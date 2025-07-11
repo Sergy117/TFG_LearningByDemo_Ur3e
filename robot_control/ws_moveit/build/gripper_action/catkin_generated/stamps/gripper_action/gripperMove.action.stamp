@@ -1,0 +1,9 @@
+float32 width # [mm]
+int32 speed 
+int32 force 
+int32 type
+---
+bool success
+bool failed
+bool error
+---

@@ -1,0 +1,4 @@
+[ 25%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/omron_tm5_moveit_config/lib/omron_tm5_moveit_config/pickPlaceTutorial[0m
+[ 50%] Built target pickPlaceTutorial
+[ 75%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/omron_tm5_moveit_config/lib/omron_tm5_moveit_config/omron_tactile_servoing[0m
+[100%] Built target omron_tactile_servoing

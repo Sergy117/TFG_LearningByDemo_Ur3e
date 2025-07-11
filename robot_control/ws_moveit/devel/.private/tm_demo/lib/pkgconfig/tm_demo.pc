@@ -1,0 +1,8 @@
+prefix=/home/robotica/ws_moveit/devel/.private/tm_demo
+
+Name: tm_demo
+Description: Description of tm_demo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

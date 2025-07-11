@@ -1,0 +1,7 @@
+onrobot_gripper_action
+/home/robotica/ws_moveit/devel/.private/onrobot_gripper_action/cmake.lock /home/robotica/ws_moveit/devel/./cmake.lock
+/home/robotica/ws_moveit/devel/.private/onrobot_gripper_action/lib/pkgconfig/onrobot_gripper_action.pc /home/robotica/ws_moveit/devel/lib/pkgconfig/onrobot_gripper_action.pc
+/home/robotica/ws_moveit/devel/.private/onrobot_gripper_action/lib/onrobot_gripper_action/joint_states_updater /home/robotica/ws_moveit/devel/lib/onrobot_gripper_action/joint_states_updater
+/home/robotica/ws_moveit/devel/.private/onrobot_gripper_action/lib/onrobot_gripper_action/onrobot_gripper_action /home/robotica/ws_moveit/devel/lib/onrobot_gripper_action/onrobot_gripper_action
+/home/robotica/ws_moveit/devel/.private/onrobot_gripper_action/share/onrobot_gripper_action/cmake/onrobot_gripper_actionConfig-version.cmake /home/robotica/ws_moveit/devel/share/onrobot_gripper_action/cmake/onrobot_gripper_actionConfig-version.cmake
+/home/robotica/ws_moveit/devel/.private/onrobot_gripper_action/share/onrobot_gripper_action/cmake/onrobot_gripper_actionConfig.cmake /home/robotica/ws_moveit/devel/share/onrobot_gripper_action/cmake/onrobot_gripper_actionConfig.cmake

@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/gripper_action/share/gripper_action/msg/gripperMoveAction.msg

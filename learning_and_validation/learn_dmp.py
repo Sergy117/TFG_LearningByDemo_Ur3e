@@ -12,7 +12,7 @@ import sys
 
 # --- Configuración ---
 DEMONSTRATIONS_BASE_DIR = "/home/sergio/Escritorio/PracticasTFG/LBDOARABOHG/vision/action_segments_ALL3/action_segments_DEMO-*"
-CALIBRATION_MATRIX_FILE = "/home/sergio/Escritorio/PracticasTFG/LBDOARABOHG/robot/data/T_base_a_camara.npy"
+CALIBRATION_MATRIX_FILE = "TFG_Sergio/auxiliary_tools/cam_cal/data/T_base_a_camara.npy"
 PHASES_TO_LEARN = ["Initial-Idle", "Grasping-to-Rotating", "Rotating-Separated", "Final-Final"]
 DMP_OUTPUT_DIR = "./learned_dmps_final2" # Guardar en una nueva carpeta para no mezclar con los antiguos
 os.makedirs(DMP_OUTPUT_DIR, exist_ok=True)

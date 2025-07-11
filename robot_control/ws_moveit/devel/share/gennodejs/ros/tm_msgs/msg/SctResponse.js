@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/tm_msgs/share/gennodejs/ros/tm_msgs/msg/SctResponse.js

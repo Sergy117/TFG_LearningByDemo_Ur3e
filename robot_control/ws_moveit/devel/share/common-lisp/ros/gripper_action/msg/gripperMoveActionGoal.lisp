@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/gripper_action/share/common-lisp/ros/gripper_action/msg/gripperMoveActionGoal.lisp

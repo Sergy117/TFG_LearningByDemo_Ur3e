@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/gripper_action/lib/pkgconfig/gripper_action.pc

@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/ur12e_moveit_config/lib/pkgconfig/ur12e_moveit_config.pc

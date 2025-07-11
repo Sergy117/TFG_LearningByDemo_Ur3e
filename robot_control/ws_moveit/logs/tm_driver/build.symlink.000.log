@@ -1,0 +1,4 @@
+Symlinking /home/robotica/ws_moveit/devel/lib/tm_driver/tm_driver
+Symlinking /home/robotica/ws_moveit/devel/lib/pkgconfig/tm_driver.pc
+Symlinking /home/robotica/ws_moveit/devel/share/tm_driver/cmake/tm_driverConfig.cmake
+Symlinking /home/robotica/ws_moveit/devel/share/tm_driver/cmake/tm_driverConfig-version.cmake

@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/tm_demo/lib/pkgconfig/tm_demo.pc

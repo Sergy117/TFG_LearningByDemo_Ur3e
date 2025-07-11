@@ -1,0 +1,5 @@
+universal_robot/ur15_moveit_config
+/home/robotica/ws_moveit/devel/.private/ur15_moveit_config/cmake.lock /home/robotica/ws_moveit/devel/./cmake.lock
+/home/robotica/ws_moveit/devel/.private/ur15_moveit_config/lib/pkgconfig/ur15_moveit_config.pc /home/robotica/ws_moveit/devel/lib/pkgconfig/ur15_moveit_config.pc
+/home/robotica/ws_moveit/devel/.private/ur15_moveit_config/share/ur15_moveit_config/cmake/ur15_moveit_configConfig-version.cmake /home/robotica/ws_moveit/devel/share/ur15_moveit_config/cmake/ur15_moveit_configConfig-version.cmake
+/home/robotica/ws_moveit/devel/.private/ur15_moveit_config/share/ur15_moveit_config/cmake/ur15_moveit_configConfig.cmake /home/robotica/ws_moveit/devel/share/ur15_moveit_config/cmake/ur15_moveit_configConfig.cmake

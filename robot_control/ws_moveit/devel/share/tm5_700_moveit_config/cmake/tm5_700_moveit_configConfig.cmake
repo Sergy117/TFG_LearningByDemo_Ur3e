@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/tm5_700_moveit_config/share/tm5_700_moveit_config/cmake/tm5_700_moveit_configConfig.cmake

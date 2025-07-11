@@ -1,0 +1,23 @@
+[  4%] Built target controller_manager_example
+[ 13%] Built target interactivity_utils
+[ 18%] Built target ros_api_tutorial
+[ 22%] Built target motion_planning_api_tutorial
+[ 27%] Built target motion_planning_pipeline_tutorial
+[35m[1mScanning dependencies of target move_group_interface_tutorial[0m
+[ 29%] [32mBuilding CXX object doc/move_group_interface/CMakeFiles/move_group_interface_tutorial.dir/src/move_group_interface_tutorial.cpp.o[0m
+[ 34%] Built target bag_publisher_maintain_time
+[ 38%] Built target detect_and_add_cylinder_collision_object_demo
+[ 43%] Built target pick_place_tutorial
+[ 47%] Built target planning_scene_tutorial
+[ 52%] Built target planning_scene_ros_api_tutorial
+[ 56%] Built target robot_model_and_robot_state_tutorial
+[ 61%] Built target state_display_tutorial
+[ 65%] Built target subframes_tutorial
+[ 70%] Built target trajopt_example
+[ 79%] Built target moveit_lerp_planner_plugin
+[ 84%] Built target lerp_example
+[ 88%] Built target moveit_cpp_tutorial
+[ 93%] Built target visualizing_collisions_tutorial
+[ 97%] Built target bullet_collision_checker_tutorial
+[100%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/moveit_tutorials/lib/moveit_tutorials/move_group_interface_tutorial[0m
+[100%] Built target move_group_interface_tutorial

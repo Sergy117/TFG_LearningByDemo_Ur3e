@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/onrobot_gripper_msgs/share/onrobot_gripper_msgs/cmake/onrobot_gripper_msgsConfig-version.cmake

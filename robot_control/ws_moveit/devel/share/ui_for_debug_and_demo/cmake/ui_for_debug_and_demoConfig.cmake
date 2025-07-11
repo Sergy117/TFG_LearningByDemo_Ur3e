@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/ui_for_debug_and_demo/share/ui_for_debug_and_demo/cmake/ui_for_debug_and_demoConfig.cmake

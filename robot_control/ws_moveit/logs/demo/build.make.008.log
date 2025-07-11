@@ -1,0 +1,56 @@
+[  0%] Built target geometry_msgs_generate_messages_eus
+[  0%] Built target tm_msgs_generate_messages_py
+[  0%] Built target tm_msgs_generate_messages_nodejs
+[  0%] Built target tm_msgs_generate_messages_lisp
+[  0%] Built target rosgraph_msgs_generate_messages_eus
+[  0%] Built target rosgraph_msgs_generate_messages_cpp
+[  0%] Built target roscpp_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target geometry_msgs_generate_messages_lisp
+[  0%] Built target tm_msgs_generate_messages_cpp
+[  0%] Built target geometry_msgs_generate_messages_py
+[  0%] Built target sensor_msgs_generate_messages_py
+[  0%] Built target geometry_msgs_generate_messages_cpp
+[  0%] Built target geometry_msgs_generate_messages_nodejs
+[  0%] Built target roscpp_generate_messages_eus
+[  0%] Built target sensor_msgs_generate_messages_lisp
+[  0%] Built target sensor_msgs_generate_messages_nodejs
+[  0%] Built target roscpp_generate_messages_py
+[  0%] Built target sensor_msgs_generate_messages_eus
+[  0%] Built target roscpp_generate_messages_cpp
+[  0%] Built target rosgraph_msgs_generate_messages_py
+[  0%] Built target rosgraph_msgs_generate_messages_lisp
+[  0%] Built target tm_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target roscpp_generate_messages_lisp
+[  0%] Built target rosgraph_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target sensor_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  3%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/demo/lib/demo/demo_leave_listen_node[0m
+[  7%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/demo/lib/demo/demo_get_sta_response[0m
+[ 11%] Built target demo_get_sta_response
+[ 15%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/demo/lib/demo/demo_ask_item[0m
+[ 19%] Built target demo_leave_listen_node
+[ 23%] Built target demo_ask_item
+[ 26%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/demo/lib/demo/demo_get_feedback[0m
+[ 30%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/demo/lib/demo/demo_write_item[0m
+[ 34%] Built target demo_write_item
+[ 38%] Built target demo_get_feedback
+[ 42%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/demo/lib/demo/demo_set_positions[0m
+[ 46%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/demo/lib/demo/demo_set_io[0m
+[ 50%] Built target demo_set_positions
+[ 53%] Built target demo_set_io
+[ 57%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/demo/lib/demo/demo_set_event[0m
+[ 61%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/demo/lib/demo/demo_get_sct_response[0m
+[ 65%] Built target demo_set_event
+[ 69%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/demo/lib/demo/demo_connect_tm[0m
+[ 73%] Built target demo_get_sct_response
+[ 76%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/demo/lib/demo/demo_send_script[0m
+[ 80%] Built target demo_connect_tm
+[ 84%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/demo/lib/demo/demo_get_svr_response[0m
+[ 88%] Built target demo_send_script
+[ 92%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/demo/lib/demo/demo_ask_sta[0m
+[ 96%] Built target demo_get_svr_response
+[100%] Built target demo_ask_sta

@@ -1,0 +1,8 @@
+prefix=/home/robotica/ws_moveit/install
+
+Name: onrobot_gripper_action
+Description: Description of onrobot_gripper_action
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

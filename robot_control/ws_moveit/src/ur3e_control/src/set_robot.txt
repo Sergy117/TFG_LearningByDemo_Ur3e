@@ -1,0 +1,48 @@
+1. Lanzar la conexion con el robot. Robot parado pero encendido
+roslaunch ur_robot_driver ur3e_bringup.launch robot_ip:=172.22.24.161
+"""SI ES SIMULACION USAR roslaunch ur3e_moveit_config demo.launch """
+
+2. Lanzar el planificador, primero encender los motores del robot, e iniciar el programa external control para control por ROS
+roslaunch ur3e_moveit_config moveit_planning_execution.launch
+3. Lanzar Rviz para visualizacion
+roslaunch ur3e_moveit_config moveit_rviz.launch
+4. Lanzar el paquete Ros que queramos para mover el robot
+rosrun ur3e_control ur3e_pick_and_place.py
+
+pin 16 = 1 --- > abrir
+pin 17 = 1 ----> cerrar 
+
+
+Pose HOME
+[INFO] [1747389069.473248]: Pose: position: 
+  x: -3.2631711406697054e-05
+  y: 0.22314999953670325
+  z: 0.693949997707084
+orientation: 
+  x: -0.7071067758100374
+  y: -0.00010167173887972231
+  z: -6.946081965704481e-05
+  w: 0.7071067758419413
+
+Pose 1 AGARRAR CABEZA
+[INFO] [1747388975.572030]: Pose: position: 
+  x: -0.3326255959158535
+  y: 0.11206405287192021
+  z: 0.2211709461774507
+orientation: 
+  x: -0.33154488497129553
+  y: -0.6928248590132944
+  z: -0.6023522020025535
+  w: 0.2173557653370481
+
+Pose 2 GIRAR CABEZA
+[INFO] [1747389005.616857]: Pose: position: 
+  x: -0.28343010458279044
+  y: 0.13666690806644743
+  z: 0.24208413132561535
+orientation: 
+  x: -0.5472135317789422
+  y: 0.36707083104936594
+  z: 0.5071554806427514
+  w: 0.55552648369341
+

@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/onrobot_gripper_msgs/share/roseus/ros/onrobot_gripper_msgs/msg/OnrobotGripperCommandFeedback.l

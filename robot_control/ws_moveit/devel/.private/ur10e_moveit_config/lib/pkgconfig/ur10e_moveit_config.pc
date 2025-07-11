@@ -1,0 +1,8 @@
+prefix=/home/robotica/ws_moveit/devel/.private/ur10e_moveit_config
+
+Name: ur10e_moveit_config
+Description: Description of ur10e_moveit_config
+Version: 1.5.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

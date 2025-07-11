@@ -1,0 +1,4 @@
+Symlinking /home/robotica/ws_moveit/devel/lib/ui_for_debug_and_demo/robot_ui
+Symlinking /home/robotica/ws_moveit/devel/lib/pkgconfig/ui_for_debug_and_demo.pc
+Symlinking /home/robotica/ws_moveit/devel/share/ui_for_debug_and_demo/cmake/ui_for_debug_and_demoConfig-version.cmake
+Symlinking /home/robotica/ws_moveit/devel/share/ui_for_debug_and_demo/cmake/ui_for_debug_and_demoConfig.cmake

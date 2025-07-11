@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/tm_msgs/share/roseus/ros/tm_msgs/srv/WriteItem.l

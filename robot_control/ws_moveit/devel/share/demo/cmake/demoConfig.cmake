@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/demo/share/demo/cmake/demoConfig.cmake

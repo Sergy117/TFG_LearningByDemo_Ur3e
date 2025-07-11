@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/gripper_action/share/roseus/ros/gripper_action/msg/gripperMoveActionFeedback.l

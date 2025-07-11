@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/omron_tm5_moveit_config/share/omron_tm5_moveit_config/cmake/omron_tm5_moveit_configConfig.cmake

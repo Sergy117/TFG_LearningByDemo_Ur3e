@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/onrobot_gripper_msgs/share/common-lisp/ros/onrobot_gripper_msgs/msg/onrobot_gripper_msgs-msg.asd

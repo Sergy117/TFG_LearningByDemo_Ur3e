@@ -1,0 +1,3 @@
+Symlinking /home/robotica/ws_moveit/devel/lib/pkgconfig/tm5_description.pc
+Symlinking /home/robotica/ws_moveit/devel/share/tm5_description/cmake/tm5_descriptionConfig.cmake
+Symlinking /home/robotica/ws_moveit/devel/share/tm5_description/cmake/tm5_descriptionConfig-version.cmake

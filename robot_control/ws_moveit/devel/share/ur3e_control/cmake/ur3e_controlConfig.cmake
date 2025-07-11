@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/ur3e_control/share/ur3e_control/cmake/ur3e_controlConfig.cmake

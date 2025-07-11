@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/robotica/ws_moveit/devel/.private/onrobot_gripper_action/setup.sh

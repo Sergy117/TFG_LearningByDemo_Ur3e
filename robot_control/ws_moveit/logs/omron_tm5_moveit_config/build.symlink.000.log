@@ -1,0 +1,9 @@
+Symlinking /home/robotica/ws_moveit/devel/lib/pkgconfig/omron_tm5_moveit_config.pc
+Symlinking /home/robotica/ws_moveit/devel/lib/omron_tm5_moveit_config/test_digit.py
+Symlinking /home/robotica/ws_moveit/devel/lib/omron_tm5_moveit_config/omron_tactile_servoing
+Symlinking /home/robotica/ws_moveit/devel/lib/omron_tm5_moveit_config/digit_publisher.py
+Symlinking /home/robotica/ws_moveit/devel/lib/omron_tm5_moveit_config/cmake.lock
+Symlinking /home/robotica/ws_moveit/devel/lib/omron_tm5_moveit_config/pickPlaceTutorial
+Symlinking /home/robotica/ws_moveit/devel/lib/omron_tm5_moveit_config/test_pytouch.py
+Symlinking /home/robotica/ws_moveit/devel/share/omron_tm5_moveit_config/cmake/omron_tm5_moveit_configConfig-version.cmake
+Symlinking /home/robotica/ws_moveit/devel/share/omron_tm5_moveit_config/cmake/omron_tm5_moveit_configConfig.cmake

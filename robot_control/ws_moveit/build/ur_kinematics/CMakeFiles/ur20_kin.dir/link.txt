@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -O3 -DNDEBUG  -shared -Wl,-soname,libur20_kin.so -o /home/robotica/ws_moveit/devel/.private/ur_kinematics/lib/libur20_kin.so CMakeFiles/ur20_kin.dir/src/ur_kin.cpp.o 

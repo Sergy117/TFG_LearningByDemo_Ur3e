@@ -1,0 +1,8 @@
+[35m[1mScanning dependencies of target joint_states_updater[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/joint_states_updater.dir/src/joint_states_updater.cpp.o[0m
+[35m[1mScanning dependencies of target onrobot_gripper_action[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/onrobot_gripper_action.dir/src/onrobot_gripper_action.cpp.o[0m
+[ 75%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/onrobot_gripper_action/lib/onrobot_gripper_action/joint_states_updater[0m
+[ 75%] Built target joint_states_updater
+[100%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/onrobot_gripper_action/lib/onrobot_gripper_action/onrobot_gripper_action[0m
+[100%] Built target onrobot_gripper_action

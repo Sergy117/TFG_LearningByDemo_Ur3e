@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/tm5_description/share/tm5_description/cmake/tm5_descriptionConfig.cmake

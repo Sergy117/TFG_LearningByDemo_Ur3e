@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/ur15_moveit_config/share/ur15_moveit_config/cmake/ur15_moveit_configConfig-version.cmake

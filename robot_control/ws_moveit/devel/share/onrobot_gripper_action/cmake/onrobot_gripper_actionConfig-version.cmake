@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/onrobot_gripper_action/share/onrobot_gripper_action/cmake/onrobot_gripper_actionConfig-version.cmake

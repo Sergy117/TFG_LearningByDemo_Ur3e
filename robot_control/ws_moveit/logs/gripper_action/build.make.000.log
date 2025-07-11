@@ -1,0 +1,118 @@
+[35m[1mScanning dependencies of target _gripper_action_generate_messages_check_deps_gripperMoveResult[0m
+[  0%] Built target _gripper_action_generate_messages_check_deps_gripperMoveResult
+[35m[1mScanning dependencies of target _gripper_action_generate_messages_check_deps_gripperGoal[0m
+[  0%] Built target _gripper_action_generate_messages_check_deps_gripperGoal
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_eus[0m
+[  0%] Built target actionlib_msgs_generate_messages_eus
+[35m[1mScanning dependencies of target std_msgs_generate_messages_eus[0m
+[  0%] Built target std_msgs_generate_messages_eus
+[35m[1mScanning dependencies of target tm_msgs_generate_messages_eus[0m
+[  0%] Built target tm_msgs_generate_messages_eus
+[35m[1mScanning dependencies of target _gripper_action_generate_messages_check_deps_gripperMoveActionResult[0m
+[  0%] Built target _gripper_action_generate_messages_check_deps_gripperMoveActionResult
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_eus[0m
+[  0%] Built target sensor_msgs_generate_messages_eus
+[35m[1mScanning dependencies of target _gripper_action_generate_messages_check_deps_gripperMoveActionGoal[0m
+[  0%] Built target _gripper_action_generate_messages_check_deps_gripperMoveActionGoal
+[35m[1mScanning dependencies of target _gripper_action_generate_messages_check_deps_gripperMoveActionFeedback[0m
+[  0%] Built target _gripper_action_generate_messages_check_deps_gripperMoveActionFeedback
+[35m[1mScanning dependencies of target _gripper_action_generate_messages_check_deps_gripperMoveAction[0m
+[  0%] Built target _gripper_action_generate_messages_check_deps_gripperMoveAction
+[35m[1mScanning dependencies of target _gripper_action_generate_messages_check_deps_gripperMoveGoal[0m
+[  0%] Built target _gripper_action_generate_messages_check_deps_gripperMoveGoal
+[35m[1mScanning dependencies of target _gripper_action_generate_messages_check_deps_gripperMoveFeedback[0m
+[  0%] Built target _gripper_action_generate_messages_check_deps_gripperMoveFeedback
+[35m[1mScanning dependencies of target std_msgs_generate_messages_py[0m
+[  0%] Built target std_msgs_generate_messages_py
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_py[0m
+[  0%] Built target actionlib_msgs_generate_messages_py
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_py[0m
+[  0%] Built target sensor_msgs_generate_messages_py
+[35m[1mScanning dependencies of target tm_msgs_generate_messages_py[0m
+[  0%] Built target tm_msgs_generate_messages_py
+[35m[1mScanning dependencies of target std_msgs_generate_messages_nodejs[0m
+[  0%] Built target std_msgs_generate_messages_nodejs
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_nodejs[0m
+[  0%] Built target actionlib_msgs_generate_messages_nodejs
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_nodejs[0m
+[  0%] Built target sensor_msgs_generate_messages_nodejs
+[35m[1mScanning dependencies of target tm_msgs_generate_messages_nodejs[0m
+[  0%] Built target tm_msgs_generate_messages_nodejs
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_lisp[0m
+[  0%] Built target actionlib_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target std_msgs_generate_messages_lisp[0m
+[  0%] Built target std_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_lisp[0m
+[  0%] Built target sensor_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target tm_msgs_generate_messages_lisp[0m
+[  0%] Built target tm_msgs_generate_messages_lisp
+[35m[1mScanning dependencies of target std_msgs_generate_messages_cpp[0m
+[  0%] Built target std_msgs_generate_messages_cpp
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_cpp[0m
+[  0%] Built target actionlib_msgs_generate_messages_cpp
+[35m[1mScanning dependencies of target sensor_msgs_generate_messages_cpp[0m
+[  0%] Built target sensor_msgs_generate_messages_cpp
+[35m[1mScanning dependencies of target tm_msgs_generate_messages_cpp[0m
+[  0%] Built target tm_msgs_generate_messages_cpp
+[35m[1mScanning dependencies of target gripper_action_generate_messages_eus[0m
+[  2%] [34m[1mGenerating EusLisp code from gripper_action/gripperGoal.msg[0m
+[  4%] [34m[1mGenerating EusLisp code from gripper_action/gripperMoveAction.msg[0m
+[  6%] [34m[1mGenerating EusLisp code from gripper_action/gripperMoveActionGoal.msg[0m
+[  8%] [34m[1mGenerating EusLisp code from gripper_action/gripperMoveActionResult.msg[0m
+[ 10%] [34m[1mGenerating EusLisp code from gripper_action/gripperMoveActionFeedback.msg[0m
+[ 13%] [34m[1mGenerating EusLisp code from gripper_action/gripperMoveGoal.msg[0m
+[ 15%] [34m[1mGenerating EusLisp code from gripper_action/gripperMoveResult.msg[0m
+[ 17%] [34m[1mGenerating EusLisp code from gripper_action/gripperMoveFeedback.msg[0m
+[ 19%] [34m[1mGenerating EusLisp manifest code for gripper_action[0m
+[ 19%] Built target gripper_action_generate_messages_eus
+[35m[1mScanning dependencies of target gripper_action_generate_messages_py[0m
+[ 21%] [34m[1mGenerating Python from MSG gripper_action/gripperGoal[0m
+[ 23%] [34m[1mGenerating Python from MSG gripper_action/gripperMoveAction[0m
+[ 26%] [34m[1mGenerating Python from MSG gripper_action/gripperMoveActionGoal[0m
+[ 28%] [34m[1mGenerating Python from MSG gripper_action/gripperMoveActionResult[0m
+[ 30%] [34m[1mGenerating Python from MSG gripper_action/gripperMoveActionFeedback[0m
+[ 32%] [34m[1mGenerating Python from MSG gripper_action/gripperMoveGoal[0m
+[ 34%] [34m[1mGenerating Python from MSG gripper_action/gripperMoveResult[0m
+[ 36%] [34m[1mGenerating Python from MSG gripper_action/gripperMoveFeedback[0m
+[ 39%] [34m[1mGenerating Python msg __init__.py for gripper_action[0m
+[ 39%] Built target gripper_action_generate_messages_py
+[35m[1mScanning dependencies of target gripper_action_generate_messages_nodejs[0m
+[ 41%] [34m[1mGenerating Javascript code from gripper_action/gripperGoal.msg[0m
+[ 43%] [34m[1mGenerating Javascript code from gripper_action/gripperMoveAction.msg[0m
+[ 45%] [34m[1mGenerating Javascript code from gripper_action/gripperMoveActionGoal.msg[0m
+[ 47%] [34m[1mGenerating Javascript code from gripper_action/gripperMoveActionResult.msg[0m
+[ 50%] [34m[1mGenerating Javascript code from gripper_action/gripperMoveActionFeedback.msg[0m
+[ 52%] [34m[1mGenerating Javascript code from gripper_action/gripperMoveGoal.msg[0m
+[ 54%] [34m[1mGenerating Javascript code from gripper_action/gripperMoveResult.msg[0m
+[ 56%] [34m[1mGenerating Javascript code from gripper_action/gripperMoveFeedback.msg[0m
+[ 56%] Built target gripper_action_generate_messages_nodejs
+[35m[1mScanning dependencies of target gripper_action_generate_messages_lisp[0m
+[ 58%] [34m[1mGenerating Lisp code from gripper_action/gripperGoal.msg[0m
+[ 60%] [34m[1mGenerating Lisp code from gripper_action/gripperMoveAction.msg[0m
+[ 63%] [34m[1mGenerating Lisp code from gripper_action/gripperMoveActionGoal.msg[0m
+[ 65%] [34m[1mGenerating Lisp code from gripper_action/gripperMoveActionResult.msg[0m
+[ 67%] [34m[1mGenerating Lisp code from gripper_action/gripperMoveActionFeedback.msg[0m
+[ 69%] [34m[1mGenerating Lisp code from gripper_action/gripperMoveGoal.msg[0m
+[ 71%] [34m[1mGenerating Lisp code from gripper_action/gripperMoveResult.msg[0m
+[ 73%] [34m[1mGenerating Lisp code from gripper_action/gripperMoveFeedback.msg[0m
+[ 73%] Built target gripper_action_generate_messages_lisp
+[35m[1mScanning dependencies of target gripper_action_generate_messages_cpp[0m
+[ 76%] [34m[1mGenerating C++ code from gripper_action/gripperGoal.msg[0m
+[ 78%] [34m[1mGenerating C++ code from gripper_action/gripperMoveAction.msg[0m
+[ 80%] [34m[1mGenerating C++ code from gripper_action/gripperMoveActionGoal.msg[0m
+[ 82%] [34m[1mGenerating C++ code from gripper_action/gripperMoveActionResult.msg[0m
+[ 84%] [34m[1mGenerating C++ code from gripper_action/gripperMoveActionFeedback.msg[0m
+[ 86%] [34m[1mGenerating C++ code from gripper_action/gripperMoveGoal.msg[0m
+[ 89%] [34m[1mGenerating C++ code from gripper_action/gripperMoveResult.msg[0m
+[ 91%] [34m[1mGenerating C++ code from gripper_action/gripperMoveFeedback.msg[0m
+[ 91%] Built target gripper_action_generate_messages_cpp
+[35m[1mScanning dependencies of target gripper_client[0m
+[ 93%] [32mBuilding CXX object CMakeFiles/gripper_client.dir/src/gripper_client.cpp.o[0m
+[ 95%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/gripper_action/lib/gripper_action/gripper_client[0m
+[ 95%] Built target gripper_client
+[35m[1mScanning dependencies of target gripper_server[0m
+[ 97%] [32mBuilding CXX object CMakeFiles/gripper_server.dir/src/gripper_server.cpp.o[0m
+[100%] [32m[1mLinking CXX executable /home/robotica/ws_moveit/devel/.private/gripper_action/lib/gripper_action/gripper_server[0m
+[100%] Built target gripper_server
+[35m[1mScanning dependencies of target gripper_action_generate_messages[0m
+[100%] Built target gripper_action_generate_messages

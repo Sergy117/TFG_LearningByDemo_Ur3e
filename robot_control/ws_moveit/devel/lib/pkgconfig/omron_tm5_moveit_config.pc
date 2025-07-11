@@ -1,0 +1,1 @@
+/home/robotica/ws_moveit/devel/.private/omron_tm5_moveit_config/lib/pkgconfig/omron_tm5_moveit_config.pc
