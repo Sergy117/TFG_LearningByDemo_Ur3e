@@ -35,17 +35,17 @@ Stereo Cameras → 1. Vision Node (3D Capture & Triangulation) → 2. Offline Le
     Robot Control (robot_control/): Loads the learned DMPs and uses them to generate and execute trajectories on the robot via MoveIt.
 
 📁 Repository Structure
-    
+
 TFG_UR3e_Teleoperation/ 
 |   
 ├── 📄 README.md              # <-- This main README file.  
-├── 📄 requirements.txt        # <-- Main Python dependencies.  
+├── 📄 requirements.txt        # <-- Main Python dependencies.
 |       
 ├── 🤖 robot_control/
-│   └── src/                 # ROS scripts for controlling the robot (e.g., dmpplayer.py).      
+│   └── src/                 # ROS scripts for controlling the robot (e.g., dmpplayer.py).
 |               
 ├── 👁️ vision_system/
-│   └── src/                 # Scripts for capturing demonstrations (e.g., main_script_final.py).               
+│   └── src/                 # Scripts for capturing demonstrations (e.g., main_script_final.py).    
 |                               
 ├── 🎓 learning_and_validation/                     
 │   └── src/                 # Scripts to validate data and train DMPs (e.g., learn_dmp.py).                
@@ -53,7 +53,7 @@ TFG_UR3e_Teleoperation/
 ├── 🛠️ auxiliary_tools/                 
 │   ├── 1_camera_calibration/  # Scripts and README for stereo calibration.             
 │   ├── 2_hand_eye_calibration/ # Scripts and README for camera-robot calibration.              
-│   └── 3_yolo_training/     # Scripts and README for the YOLO model training pipeline.             
+│   └── 3_yolo_training/     # Scripts and README for the YOLO model training pipeline.
 |                                                                                               
 ├── 📂 data/
 │   ├── calibration_files/   # .npy files from the calibrations.                    
