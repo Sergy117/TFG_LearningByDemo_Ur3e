@@ -39,16 +39,16 @@ Stereo Cameras → 1. Vision Node (3D Capture & Triangulation) → 2. Offline Le
 TFG_UR3e_Teleoperation/ 
 |   
 ├── 📄 README.md              # <-- This main README file.  
-├── 📄 requirements.txt        # <-- Main Python dependencies.
-|       
+├── 📄 requirements.txt        # <-- Main Python dependencies.  
+| 
 ├── 🤖 robot_control/
 │   └── src/                 # ROS scripts for controlling the robot (e.g., dmpplayer.py).
 |               
 ├── 👁️ vision_system/
-│   └── src/                 # Scripts for capturing demonstrations (e.g., main_script_final.py).    
+│   └── src/                 # Scripts for capturing demonstrations (e.g., main_script_final.py).
 |                               
 ├── 🎓 learning_and_validation/                     
-│   └── src/                 # Scripts to validate data and train DMPs (e.g., learn_dmp.py).                
+│   └── src/                 # Scripts to validate data and train DMPs (e.g., learn_dmp.py).
 |                                       
 ├── 🛠️ auxiliary_tools/                 
 │   ├── 1_camera_calibration/  # Scripts and README for stereo calibration.             
