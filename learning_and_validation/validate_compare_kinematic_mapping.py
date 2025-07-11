@@ -11,13 +11,13 @@ import math
 from scipy.signal import savgol_filter
 import sys
 
-# --- Configuración ---
+# --- Config of the folders and routes  ---
 DEMONSTRATIONS_BASE_DIR = "/home/sergio/Escritorio/PracticasTFG/LBDOARABOHG/vision/action_segments_ALL3/action_segments_DEMO-*"
-CALIBRATION_MATRIX_FILE = "/home/sergio/Escritorio/PracticasTFG/LBDOARABOHG/robot/data/T_base_a_camara.npy"
+CALIBRATION_MATRIX_FILE = "/home/sergio/Escritorio/PracticasTFG/LBDOARABOHG/robot/data/T_base_a_camara.npy" #Traslation between camera and robot
 TASK_PHASE_SEQUENCE = ["Initial-Idle", "Grasping-to-Rotating", "Rotating-to-Separated", "Final-Final"]
-# <<< MODIFICADO: Añadir los landmarks del torso para el cálculo dinámico >>>
+# The key points are the right arm, and left shoulder right hip for stabilizing translation into robot world
 KEY_POINTS_TO_PROCESS = ["right_shoulder", "right_elbow", "right_hand", "left_shoulder", "right_hip"]
-PLAYBACK_SPEED_DELAY = 0.05
+PLAYBACK_SPEED_DELAY = 0.05 #Delay between playback of points, more delay, its slower for better visualization
 
 # --- Parámetros de Calibración de Pose (Sección 3.2 del informe) ---
 ROBOT_CALIB_ANGLES = {'shoulder_pan_joint': 0.0, 'shoulder_lift_joint': -math.pi/2, 'elbow_joint': 0.0}

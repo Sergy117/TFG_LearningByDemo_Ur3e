@@ -1,0 +1,12 @@
+
+# Route to the principal directory of the dataset
+path: /dataset_structure # Check absolute or relative path!!!!
+
+# Images directory (relatives to 'path')
+train: images/train  # training images
+val: images/valid  # validation images
+# test: images/test # Optional if you have test 
+
+# Classes definition (make sure that 0 is 'doll_head')
+nc: 2
+names: ['doll_head', 'doll_body'] # O ['doll_body', 'doll_head'] if 0 its doll body
