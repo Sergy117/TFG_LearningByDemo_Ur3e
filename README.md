@@ -37,29 +37,29 @@ Stereo Cameras → 1. Vision Node (3D Capture & Triangulation) → 2. Offline Le
 📁 Repository Structure
 
 TFG_UR3e_Teleoperation/ 
+|       
+├── 📄 README.md              # <-- This main README file.      
+├── 📄 requirements.txt        # <-- Main Python dependencies.      
 |   
-├── 📄 README.md              # <-- This main README file.  
-├── 📄 requirements.txt        # <-- Main Python dependencies.  
-| 
-├── 🤖 robot_control/
-│   └── src/                 # ROS scripts for controlling the robot (e.g., dmpplayer.py).
-|               
+├── 🤖 robot_control/   
+│   └── src/                 # ROS scripts for controlling the robot (e.g., dmpplayer.py).  
+|                  
 ├── 👁️ vision_system/
 │   └── src/                 # Scripts for capturing demonstrations (e.g., main_script_final.py).
 |                               
 ├── 🎓 learning_and_validation/                     
 │   └── src/                 # Scripts to validate data and train DMPs (e.g., learn_dmp.py).
 |                                       
-├── 🛠️ auxiliary_tools/                 
+├── 🛠️ auxiliary_tools/                    
 │   ├── 1_camera_calibration/  # Scripts and README for stereo calibration.             
 │   ├── 2_hand_eye_calibration/ # Scripts and README for camera-robot calibration.              
 │   └── 3_yolo_training/     # Scripts and README for the YOLO model training pipeline.
 |                                                                                               
-├── 📂 data/
+├── 📂 data/    
 │   ├── calibration_files/   # .npy files from the calibrations.                    
 │   └── learned_dmps/        # .pkl files of the learned DMPs.          
 │                                                                           
-└── 📝 documentation/
+└── 📝 documentation/   
     └── (Images, GIFs, and other resources for the TFG document).
 
 🚀 Getting Started
