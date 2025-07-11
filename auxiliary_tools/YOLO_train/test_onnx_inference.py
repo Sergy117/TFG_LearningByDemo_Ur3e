@@ -27,7 +27,7 @@ COLORS = [(0, 255, 0), (0, 0, 255)] # Verde para cabeza, Azul para cuerpo (ajust
 
 # --- Función de Post-procesamiento (La misma que antes para salida ONNX) ---
 def postprocess_yolo_output(outputs, original_width, original_height, conf_threshold, nms_threshold):
-    """Procesa la salida raw del modelo YOLOv8 ONNX."""
+    """Process la salida raw del modelo YOLOv8 ONNX."""
     # La salida de ONNX Runtime suele ser una lista, tomamos el primer elemento
     # que debe tener shape [batch, num_props, num_detections], ej [1, 6, 8400]
     outputs = outputs[0].T # Transponer a [num_detections, num_props]
