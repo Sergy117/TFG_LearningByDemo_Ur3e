@@ -1,6 +1,6 @@
-=======================================================================
+
  README - Multi-Camera Vision System for Action Segmentation (LfD)
-=======================================================================
+
 
 Developed by: Sergio González Rodriguez (meanssergy@gmail.com)
 Last Updated: 2025-05-03 (Please update as needed)
