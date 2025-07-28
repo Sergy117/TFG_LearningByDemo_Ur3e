@@ -11,17 +11,17 @@ The final output of this process is a best.onnx file, a lightweight and framewor
 
 * The end-to-end process for creating the custom detector follows these steps:
 
-    * Data Collection: Use the cap.py script to capture images of the target object with the stereo camera setup.
+    * **Data Collection**: Use the cap.py script to capture images of the target object with the stereo camera setup.
 
-    * Annotation: Upload the captured images to an annotation tool like CVAT.ai. Manually draw bounding boxes for doll_head and doll_body objects.
+    * **Annotation**: Upload the captured images to an annotation tool like CVAT.ai. Manually draw bounding boxes for doll_head and doll_body objects.
 
-    * Export Annotations: Download the annotations from CVAT in the YOLO 1.1 format. This typically results in images and labels folders, along with a classes.txt file.
+    * **Export Annotations**: Download the annotations from CVAT in the YOLO 1.1 format. This typically results in images and labels folders, along with a classes.txt file.
 
-    * Dataset Splitting: Use the dataset_yolo_split.py script to automatically divide the annotated data into training and validation sets, * creating the directory structure required by Ultralytics YOLO.
+    * **Dataset Splitting**: Use the dataset_yolo_split.py script to automatically divide the annotated data into training and validation sets, * creating the directory structure required by Ultralytics YOLO.
 
-    * Training & Exporting: Run the main train_doll_yolo.py script. It handles the fine-tuning of a pre-trained YOLOv8 model and automatically exports the best-performing checkpoint to the ONNX format.
+    * **Training & Exporting**: Run the main train_doll_yolo.py script. It handles the fine-tuning of a pre-trained YOLOv8 model and automatically exports the best-performing checkpoint to the ONNX format.
 
-    * Testing (Optional): Use the test_onnx_inference.py script to perform a quick inference test on the exported .onnx model to ensure it loads and works correctly.
+    * **Testing (Optional)**: Use the test_onnx_inference.py script to perform a quick inference test on the exported .onnx model to ensure it loads and works correctly.
 
 ## ⚙️ Dependencies
 
@@ -40,34 +40,34 @@ This will typically install libraries such as:
 
     numpy
 
-📁 File Structure
+## 📁 File Structure
 
 This directory contains the following key files:
 
-    cap.py: A simple script to capture and save images from the stereo cameras, used to build the initial image dataset.
+* **cap.py**: A simple script to capture and save images from the stereo cameras, used to build the initial image dataset.
 
-    dataset_yolo_split.py: A utility script that splits the annotated dataset into train/ and valid/ subdirectories.
+* **dataset_yolo_split.py**: A utility script that splits the annotated dataset into train/ and valid/ subdirectories.
 
-    train_doll_yolo.py: The main script for training. It loads a base YOLO model, fine-tunes it on the custom dataset, and exports the best model to ONNX.
+* **train_doll_yolo.py**: The main script for training. It loads a base YOLO model, fine-tunes it on the custom dataset, and exports the best model to ONNX.
 
-    test_onnx_inference.py: A utility script to load the final .onnx model and test its inference on a sample image.
+* **test_onnx_inference.py**: A utility script to load the final .onnx model and test its inference on a sample image.
 
-    data.yaml: The crucial dataset configuration file for YOLO. It specifies the paths to the training/validation sets and the class names.
+* **data.yaml**: The crucial dataset configuration file for YOLO. It specifies the paths to the training/validation sets and the class names.
 
-    requirements.txt: Lists all Python dependencies for this training environment.
+* **requirements.txt**: Lists all Python dependencies for this training environment.
 
-🚀 Step-by-Step Instructions
+## 🚀 Step-by-Step Instructions
 
-Step 1: Data Collection (cap.py)
+* **Step 1**: Data Collection (cap.py)
 
 Run the script to capture images of the doll in various positions, orientations, and lighting conditions.
 Bash
-
+```sh
 python3 cap.py
-
+```
 Place all captured images in a common source folder (e.g., dataset/source_images/).
 
-Step 2: Annotation (cvat.ai)
+* **Step 2**: Annotation (cvat.ai)
 
     Create a new project in CVAT.
 
@@ -79,7 +79,7 @@ Step 2: Annotation (cvat.ai)
 
     Export the project annotations in YOLO 1.1 format.
 
-Step 3: Prepare Dataset (dataset_yolo_split.py)
+* **Step 3**: Prepare Dataset (dataset_yolo_split.py)
 
     Place the exported images and labels folders inside a main directory, for example, YOLO_train/raw_dataset/.
 
@@ -88,24 +88,23 @@ Step 3: Prepare Dataset (dataset_yolo_split.py)
 
     python3 dataset_yolo_split.py
 
-Step 4: Configure Training (data.yaml)
+* **Step 4**: Configure Training (data.yaml)
 
-Edit the data.yaml file to ensure the paths point to your new train and valid image folders and that the class names are correct.
-YAML
+    Edit the data.yaml file to ensure the paths point to your new train and valid image folders and that the class names are correct.
+    YAML
 
-train: /path/to/your/project/YOLO_train/doll_dataset/train/images
-val: /path/to/your/project/YOLO_train/doll_dataset/valid/images
+    train: /path/to/your/project/YOLO_train/doll_dataset/train/images
+    val: /path/to/your/project/YOLO_train/doll_dataset/valid/images
 
-nc: 2
-names: ['doll_head', 'doll_body']
+    nc: 2
+    names: ['doll_head', 'doll_body']
 
-Step 5: Train the Model (train_doll_yolo.py)
+* **Step 5**: Train the Model (train_doll_yolo.py)
 
 Before running, you can adjust training parameters like num_epochs, batch_size, etc., at the top of the train_doll_yolo.py script. Then, start the training:
-Bash
-
+```sh
 python3 train_doll_yolo.py
-
+```
 The process will create a new run folder inside runs/detect/. After training is complete, the best model (best.pt) will be automatically converted to best.onnx and saved in the same location.
 
 Step 6: Test the Final Model (test_onnx_inference.py)
@@ -115,10 +114,9 @@ This is an optional but recommended final check.
     Copy the generated best.onnx file to the location where your main vision system expects it.
 
     Run the test script to load the ONNX model and perform detection on a test image.
-    Bash
-
+```sh
     python3 test_onnx_inference.py
-
+``` 
 🏁 Final Output
 
 The primary artifact of this entire process is the best.onnx model file. This is the final, optimized model that should be used by the main teleoperation project for real-time object detection.

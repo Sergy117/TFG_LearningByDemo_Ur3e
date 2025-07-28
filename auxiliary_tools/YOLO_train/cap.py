@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
 """
+This code belong to https://github.com/Sergy117/TFG_LearningByDemo_Ur3e
+Developed by Sergio Gonzalez Rodríguez for Unversity of Santiago de Compostela
+owner: meanssergy@gmail.com
+date: 2025
+"""
+"""
 Script to capture images simultanously from two Realsense cameras.
 's' to save images
 'q' to exit

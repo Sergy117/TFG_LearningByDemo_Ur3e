@@ -110,7 +110,6 @@ def split_data(image_dir, label_dir, dest_dir, train_ratio, img_ext):
 
 # --- Main ---
 if __name__ == "__main__":
-    # Configurar argumentos de línea de comandos
     parser = argparse.ArgumentParser(description="Divide a dataset of images and labels of YOLO in train and validation.")
     parser.add_argument("--img_dir", type=str, default=DEFAULT_IMAGE_SOURCE_DIR,
                         help="Directory of images.")
