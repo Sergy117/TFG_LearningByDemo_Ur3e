@@ -9,12 +9,12 @@ The script consist on 3 steps:
 3. Stereo Calibration
     * Using parameters saved, extrinsic parameters calculated
     * Rotation and Traslation Matrix between cameras saved on /data as .npy files
-
+---
 ## Hardware
 Cameras: 2 x Intel RealSense cameras.
 Calibration Pattern: A physical chessboard with the following specifications:
-* Board Size: 9x6 internal corners.
-* Square Size: 2.5 cm (0.025 meters).
+* **Board Size**: 9x6 internal corners.
+* **Square Size**: 2.5 cm (0.025 meters).
 ## Software
 Python 3.x
 Required Python libraries: numpy, opencv-python, pyrealsense2.
@@ -24,19 +24,19 @@ For installing this libraries:
 ```
 
 Matrix data of individual parameters of each camera and Stereo parameters saved in /data
-###################################################################################################
+---
 Before using the script CalibrationStereo.py:
-    -Connect your cameras to the pc.
-    -Prepare your chessboard, preferly printed on a carboard or rigid surface.
-    -Be sure of visibility of the chessboard in both cameras. Failed images are discarded and shown to user. 'Q' to pass them when prompted.
-    -Modify parameters of your chessboard on the first lines of the script, adapt rows, columns, and square size
-        chessboard_size = (9, 6)  # Number of squares in each row and column
-        square_size = 0.025  # Size of each square in the chessboard
-    -Modify serial numbers of your own realsense cameras.
-        #Serial number of each camera
-        Serial_Cam1 = '153222070290'
-        Serial_Cam2 = '153222070548'
-        
+1. Connect your cameras to the pc.
+2. Prepare your chessboard, preferly printed on a carboard or rigid surface.
+3. Be sure of visibility of the chessboard in both cameras. Failed images are discarded and shown to user. 'Q' to pass them when prompted.
+4. Modify parameters of your chessboard on the first lines of the script, adapt rows, columns, and square size
+* chessboard_size = (9, 6)  # Number of squares in each row and column
+* square_size = 0.025  # Size of each square in the chessboard
+5. Modify serial numbers of your own realsense cameras.
+* Serial number of each camera
+    * Serial_Cam1 = '153222070290'
+    * Serial_Cam2 = '153222070548'
+    
 For runing the script:
     python3 CalibrationStereo.py
 
