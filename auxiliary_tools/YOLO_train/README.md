@@ -1,34 +1,35 @@
-Custom YOLO Model Training for Doll Detection
-
-📝 Description
+---
+#Custom YOLO Model Training for Doll Detection
+---
+## 📝 Description
 
 This folder contains the complete pipeline and all necessary scripts to train a custom YOLOv8 object detection model. The model is fine-tuned to detect two specific classes required for the main robotic task: doll_head and doll_body.
 
 The final output of this process is a best.onnx file, a lightweight and framework-independent model format used for real-time inference in the main vision system.
 
-🔄 Methodology / Workflow
+## 🔄 Methodology / Workflow
 
-The end-to-end process for creating the custom detector follows these steps:
+* The end-to-end process for creating the custom detector follows these steps:
 
-    Data Collection: Use the cap.py script to capture images of the target object with the stereo camera setup.
+    * Data Collection: Use the cap.py script to capture images of the target object with the stereo camera setup.
 
-    Annotation: Upload the captured images to an annotation tool like CVAT.ai. Manually draw bounding boxes for doll_head and doll_body objects.
+    * Annotation: Upload the captured images to an annotation tool like CVAT.ai. Manually draw bounding boxes for doll_head and doll_body objects.
 
-    Export Annotations: Download the annotations from CVAT in the YOLO 1.1 format. This typically results in images and labels folders, along with a classes.txt file.
+    * Export Annotations: Download the annotations from CVAT in the YOLO 1.1 format. This typically results in images and labels folders, along with a classes.txt file.
 
-    Dataset Splitting: Use the dataset_yolo_split.py script to automatically divide the annotated data into training and validation sets, creating the directory structure required by Ultralytics YOLO.
+    * Dataset Splitting: Use the dataset_yolo_split.py script to automatically divide the annotated data into training and validation sets, * creating the directory structure required by Ultralytics YOLO.
 
-    Training & Exporting: Run the main train_doll_yolo.py script. It handles the fine-tuning of a pre-trained YOLOv8 model and automatically exports the best-performing checkpoint to the ONNX format.
+    * Training & Exporting: Run the main train_doll_yolo.py script. It handles the fine-tuning of a pre-trained YOLOv8 model and automatically exports the best-performing checkpoint to the ONNX format.
 
-    Testing (Optional): Use the test_onnx_inference.py script to perform a quick inference test on the exported .onnx model to ensure it loads and works correctly.
+    * Testing (Optional): Use the test_onnx_inference.py script to perform a quick inference test on the exported .onnx model to ensure it loads and works correctly.
 
-⚙️ Dependencies
+## ⚙️ Dependencies
 
 All required Python libraries are listed in the requirements.txt file. You can install them using pip:
 Bash
-
+```sh
 pip install -r requirements.txt
-
+```
 This will typically install libraries such as:
 
     ultralytics
