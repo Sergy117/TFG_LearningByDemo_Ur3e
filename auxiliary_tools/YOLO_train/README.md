@@ -69,35 +69,33 @@ Place all captured images in a common source folder (e.g., dataset/source_images
 
 * **Step 2**: Annotation (cvat.ai)
 
-    Create a new project in CVAT.
+    * Create a new project in CVAT.
 
-    Upload the images from dataset/source_images/.
+    * Upload the images from dataset/source_images/.
 
-    Define the labels: doll_head and doll_body.
+    * Define the labels: doll_head and doll_body.
 
-    Annotate all images by drawing bounding boxes around the objects.
+    * Annotate all images by drawing bounding boxes around the objects.
 
-    Export the project annotations in YOLO 1.1 format.
+    * Export the project annotations in YOLO 1.1 format.
 
 * **Step 3**: Prepare Dataset (dataset_yolo_split.py)
 
-    Place the exported images and labels folders inside a main directory, for example, YOLO_train/raw_dataset/.
+    * Place the exported images and labels folders inside a main directory, for example, YOLO_train/raw_dataset/.
 
-    Run the split script. It will create a new directory (e.g., doll_dataset/) containing train/ and valid/ subfolders, properly structured for training.
-    Bash
-
-    python3 dataset_yolo_split.py
-
+    * Run the split script. It will create a new directory (e.g., doll_dataset/) containing train/ and valid/ subfolders, properly structured for training.
+```sh
+python3 dataset_yolo_split.py
+```
 * **Step 4**: Configure Training (data.yaml)
 
-    Edit the data.yaml file to ensure the paths point to your new train and valid image folders and that the class names are correct.
+* Edit the data.yaml file to ensure the paths point to your new train and valid image folders and that the class names are correct.
     YAML
+    * train: /path/to/your/project/YOLO_train/doll_dataset/train/images
+    * val: /path/to/your/project/YOLO_train/doll_dataset/valid/images
 
-    train: /path/to/your/project/YOLO_train/doll_dataset/train/images
-    val: /path/to/your/project/YOLO_train/doll_dataset/valid/images
-
-    nc: 2
-    names: ['doll_head', 'doll_body']
+    * nc: 2
+    * names: ['doll_head', 'doll_body']
 
 * **Step 5**: Train the Model (train_doll_yolo.py)
 
@@ -105,18 +103,19 @@ Before running, you can adjust training parameters like num_epochs, batch_size, 
 ```sh
 python3 train_doll_yolo.py
 ```
-The process will create a new run folder inside runs/detect/. After training is complete, the best model (best.pt) will be automatically converted to best.onnx and saved in the same location.
+The process will create a new run folder inside runs/detect/. 
+After training is complete, the best model (best.pt) will be automatically converted to best.onnx and saved in the same location.
 
-Step 6: Test the Final Model (test_onnx_inference.py)
+* **Step 6**: Test the Final Model (test_onnx_inference.py)
 
 This is an optional but recommended final check.
 
-    Copy the generated best.onnx file to the location where your main vision system expects it.
+Copy the generated best.onnx file to the location where your main vision system expects it.
 
-    Run the test script to load the ONNX model and perform detection on a test image.
+Run the test script to load the ONNX model and perform detection on a test image.
 ```sh
     python3 test_onnx_inference.py
 ``` 
-🏁 Final Output
+## 🏁 Final Output
 
 The primary artifact of this entire process is the best.onnx model file. This is the final, optimized model that should be used by the main teleoperation project for real-time object detection.
