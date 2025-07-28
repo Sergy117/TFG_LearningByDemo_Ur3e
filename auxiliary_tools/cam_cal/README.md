@@ -1,14 +1,15 @@
 # Camera Calibration for stereo
 This document outlines the purpose, requirements, and usage of the CalibrationStereo.py script, designed to perform a full stereo calibration for a pair of Intel RealSense cameras.
 The script consist on 3 steps:
-    1. Capturing Images 
-        20 pair of images captured.
-        Images of each camera saved on /images
-    2. Individual Calibration
-        Intrinisc parameters for each camera calculated using captured images
-    3. Stereo Calibration
-        Using parameters saved, extrinsic parameters calculated
-        Rotation and Traslation Matrix between cameras saved on /data as .npy files
+1. Capturing images
+    * 20 pair of images captured
+    * Images of each camera saved on /images
+2. Individual Calibration
+    * Intrinsic parameters for each camera calculated using captured images
+3. Stereo Calibration
+    * Using parameters saved, extrinsic parameters calculated
+    * Rotation and Traslation Matrix between cameras saved on /data as .npy files
+
 Hardware
 
     Cameras: 2 x Intel RealSense cameras.
