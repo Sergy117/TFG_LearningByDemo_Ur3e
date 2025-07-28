@@ -36,33 +36,35 @@ Before using the script CalibrationStereo.py:
     square_size = 0.025  # Size of each square in the chessboard
 ```
 5. Modify serial numbers of your own realsense cameras.
-    * Serial number of each camera
+**Serial number of each camera**
 ```sh
-    * Serial_Cam1 = '153222070290'
-    * Serial_Cam2 = '153222070548'
+    Serial_Cam1 = '153222070290'
+    Serial_Cam2 = '153222070548'
 ```
 --- 
 For runing the script:
 ---
+```sh
 python3 CalibrationStereo.py
-
+```
 Follow the on-screen prompts. The script will loop 20 times. For each iteration:
 
 You will have 5 seconds to position the chessboard in front of both cameras.
 
-Important: For a high-quality calibration, show the board in a wide variety of positions, distances, and angles, making sure it's fully visible in both camera views.
+**Important**: For a high-quality calibration, show the board in a wide variety of positions, distances, and angles, making sure it's fully visible in both camera views.
 
 The script will automatically capture and save the images.
 ---
-The script will generate two folders (images/ and data/) if they don't exist. The final calibration parameters will be saved in the data/ folder:
+The script will generate two folders (images/ and data/) if they don't exist. 
+The final calibration parameters will be saved in the data/ folder:
 
-camera_matrix_camX.npy: The intrinsic matrix for the camera. Relates 3D world points to 2D image pixels.
+* **camera_matrix_camX.npy**: The intrinsic matrix for the camera. Relates 3D world points to 2D image pixels.
 
-dist_coeffs_camX.npy: The distortion coefficients for the camera's lens. Used to correct optical aberrations.
+* **dist_coeffs_camX.npy**: The distortion coefficients for the camera's lens. Used to correct optical aberrations.
 
-R.npy: The Rotation Matrix (3x3). Describes the orientation of Camera 2 relative to Camera 1's coordinate system.
+* **R.npy**: The Rotation Matrix (3x3). Describes the orientation of Camera 2 relative to Camera 1's coordinate system.
 
-T.npy: The Translation Vector (3x1). Describes the position of Camera 2 relative to Camera 1's coordinate system, in meters.
+* **T.npy**: The Translation Vector (3x1). Describes the position of Camera 2 relative to Camera 1's coordinate system, in meters.
 
 These files are the essential inputs for the 3D triangulation and computer vision tasks in the main project.
 ---
