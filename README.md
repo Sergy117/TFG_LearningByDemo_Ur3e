@@ -6,7 +6,7 @@ This repository contains the source code, documentation, and auxiliary tools for
 
 The primary goal is to develop and validate a robust kinematic mapping pipeline that serves as a foundation for Learning from Demonstration (LfD) tasks. This is achieved by using Dynamic Movement Primitives (DMPs) to enable the robot to learn and reproduce complex tasks demonstrated by a human operator.
 
-(Suggestion: Add a GIF here showing the final result, such as the Matplotlib comparison or an RViz simulation!)
+![demoj_Hpm9b2og(2)](https://github.com/user-attachments/assets/9c0ac0f2-b11f-49a4-9c66-77ac8f5d0a7b)
 
 ✨ Key Features
 
