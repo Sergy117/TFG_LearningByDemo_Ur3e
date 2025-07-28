@@ -5,6 +5,7 @@
 Developed by: Sergio González Rodriguez (meanssergy@gmail.com)
 Last Updated: 2025-05-03 (Please update as needed)
 Licensed by: Santiago de Compostela University
+
 ![demoj_Hpm9b2og(2)](https://github.com/user-attachments/assets/72f40a9d-7ff2-4484-9ad2-afc4bc897b5c)
 
 --------------------
