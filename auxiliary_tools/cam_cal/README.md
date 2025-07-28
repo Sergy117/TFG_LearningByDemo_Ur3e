@@ -31,12 +31,16 @@ Before using the script CalibrationStereo.py:
 2. Prepare your chessboard, preferly printed on a carboard or rigid surface.
 3. Be sure of visibility of the chessboard in both cameras. Failed images are discarded and shown to user. 'Q' to pass them when prompted.
 4. Modify parameters of your chessboard on the first lines of the script, adapt rows, columns, and square size
-    * chessboard_size = (9, 6)  # Number of squares in each row and column
-    * square_size = 0.025  # Size of each square in the chessboard
+```sh
+    chessboard_size = (9, 6)  # Number of squares in each row and column
+    square_size = 0.025  # Size of each square in the chessboard
+```
 5. Modify serial numbers of your own realsense cameras.
     * Serial number of each camera
-        * Serial_Cam1 = '153222070290'
-        * Serial_Cam2 = '153222070548'
+```sh
+    * Serial_Cam1 = '153222070290'
+    * Serial_Cam2 = '153222070548'
+```
 --- 
 For runing the script:
 ---
