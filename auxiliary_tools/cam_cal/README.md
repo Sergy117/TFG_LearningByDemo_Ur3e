@@ -1,3 +1,4 @@
+# Camera Calibration for stereo
 This document outlines the purpose, requirements, and usage of the CalibrationStereo.py script, designed to perform a full stereo calibration for a pair of Intel RealSense cameras.
 The script consist on 3 steps:
     1. Capturing Images 
