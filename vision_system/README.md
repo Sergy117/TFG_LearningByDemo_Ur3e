@@ -37,12 +37,12 @@ The system utilizes the following key libraries:
 --------------------
 
 Before running the main script (`main_script_clean.py`), ensure the following prerequisites are met:
-
+ 
 2.1. Hardware:
     - Two Intel RealSense Depth Cameras (tested with D435, ensure correct serial numbers are set in the script).
     - A capable computer (CPU/RAM). A dedicated NVIDIA GPU with CUDA correctly installed is highly recommended for real-time performance, especially for MediaPipe and potentially ONNX inference.
     - The target object (e.g., the specific toy doll) used for training the YOLO model.
-
+ 
 2.2. Software / Libraries:
     - Python (e.g., 3.10 or compatible version).
     - It is strongly recommended to use a Python virtual environment (like `venv` or `conda`).
