@@ -1,6 +1,6 @@
 ---
 UR3e Robotic Arm Control via Learning by demostrations from Human Pose Estimation
-*---*
+---
 📖 Project Overview
 
 This repository contains the source code, documentation, and auxiliary tools for a Final Degree Project (TFG) focused on the learning of a UR3e robotic arm by the demostrations captured by a vision system. The system translates the movements of a human operator, captured by a stereo vision system with MediaPipe, into joint state commands for the robot, and learn a dmp. This approach deliberately avoids real-time Inverse Kinematics (IK) to prioritize low latency and computational efficiency.
