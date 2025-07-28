@@ -10,7 +10,7 @@ The script consist on 3 steps:
     * Using parameters saved, extrinsic parameters calculated
     * Rotation and Traslation Matrix between cameras saved on /data as .npy files
 
-Hardware
+## Hardware
 
     Cameras: 2 x Intel RealSense cameras.
 
@@ -19,14 +19,16 @@ Hardware
         Board Size: 9x6 internal corners.
 
         Square Size: 2.5 cm (0.025 meters).
-Software
+## Software
 
     Python 3.x
 
     Required Python libraries: numpy, opencv-python, pyrealsense2.
 
     For installing this libraries:
-        pip install numpy opencv-python pyrealsense2
+```sh
+    pip install numpy opencv-python pyrealsense2
+```
 
 Matrix data of individual parameters of each camera and Stereo parameters saved in /data
 ###################################################################################################
