@@ -11,21 +11,14 @@ The script consist on 3 steps:
     * Rotation and Traslation Matrix between cameras saved on /data as .npy files
 
 ## Hardware
-
-    Cameras: 2 x Intel RealSense cameras.
-
-    Calibration Pattern: A physical chessboard with the following specifications:
-
-        Board Size: 9x6 internal corners.
-
-        Square Size: 2.5 cm (0.025 meters).
+Cameras: 2 x Intel RealSense cameras.
+Calibration Pattern: A physical chessboard with the following specifications:
+* Board Size: 9x6 internal corners.
+* Square Size: 2.5 cm (0.025 meters).
 ## Software
-
-    Python 3.x
-
-    Required Python libraries: numpy, opencv-python, pyrealsense2.
-
-    For installing this libraries:
+Python 3.x
+Required Python libraries: numpy, opencv-python, pyrealsense2.
+For installing this libraries:
 ```sh
     pip install numpy opencv-python pyrealsense2
 ```
