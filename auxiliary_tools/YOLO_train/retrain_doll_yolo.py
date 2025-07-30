@@ -1,40 +1,48 @@
 from ultralytics import YOLO
 import os
 import torch
+"""
+This code belong to https://github.com/Sergy117/TFG_LearningByDemo_Ur3e
+Developed by Sergio Gonzalez Rodríguez for Unversity of Santiago de Compostela
+owner: meanssergy@gmail.com
+date: 2025
+"""
+"""
+This script is used to retrain a pretrained model for better detection on a custom object, in this project, to detect better the doll
+"""
 
-# --- Configuración del Reentrenamiento ---
-# 1. Verifica que apunta al YAML correcto
+#  Verify path
 yaml_file_path = 'data.yaml' # Asumiendo que está aquí
 
-# 2. ¡¡IMPORTANTE!! Apunta al 'best.pt' ANTERIOR
+# Use 'best.pt' that was trained for the doll
 base_model_weights = 'best.pt' 
 
-# 3. Ajusta las épocas (probablemente menos)
+# Adjust epochs
 num_epochs = 50
 
-# 4. Cambia el nombre de la ejecución
-run_name = 'doll_yolov8n_run2' # Nuevo nombre
+# Change name for avoiding override
+run_name = 'doll_yolov8n_run2'
 
-# Otros parámetros (mantener consistencia)
+# Keep coherence with other codes
 image_size = 640
 batch_size = 8
 device_to_use = 0 if torch.cuda.is_available() else 'cpu'
-# --- Fin Configuración ---
 
-# Verificar archivos
+
+# Verify 
 if not os.path.exists(yaml_file_path):
-    print(f"Error Crítico: El archivo YAML '{yaml_file_path}' no se encuentra.")
+    print(f"Critic error: YAML '{yaml_file_path}' not found.")
 elif not os.path.exists(base_model_weights):
-    print(f"Error Crítico: El modelo base '{base_model_weights}' no se encuentra.")
+    print(f"Critic error: base model '{base_model_weights}' not found.")
 else:
-    print(f"Archivo YAML encontrado: {yaml_file_path}")
-    print(f"Continuando entrenamiento desde: {base_model_weights}")
-    print(f"Usando dispositivo: {device_to_use}")
+    print(f" YAML found: {yaml_file_path}")
+    print(f"Training from: {base_model_weights}")
+    print(f"Using device for training: {device_to_use}")
 
-    # Cargar el modelo entrenado anteriormente
+    # Load model
     model = YOLO(base_model_weights)
 
-    # Iniciar el re-entrenamiento
+    # re-training
     try:
         results = model.train(
             data=yaml_file_path,
@@ -43,32 +51,32 @@ else:
             batch=batch_size,
             device=device_to_use,
             name=run_name,
-            patience=25 # Puedes ajustar la paciencia
+            patience=25 #You could adjust parameters
         )
 
         print("-" * 30)
-        print("¡Re-entrenamiento completado exitosamente!")
+        print("Completed retraining!")
         best_model_path = os.path.join(results.save_dir, 'weights', 'best.pt')
-        print(f"Nuevo modelo 'best.pt' guardado en: {best_model_path}")
+        print(f"New model 'best.pt' saved in: {best_model_path}")
         print("-" * 30)
 
-        # <<< Exportación Automática a ONNX del NUEVO modelo >>>
+        # Exporting to ONNX for posterior use
         if os.path.exists(best_model_path):
-            print("\nIniciando exportación a ONNX...")
-            model_to_export = YOLO(best_model_path) # Cargar el nuevo best.pt
+            print("\nExporting ONNX...")
+            model_to_export = YOLO(best_model_path) 
             try:
-                # ¡Asegúrate de incluir simplify=True!
+                # check simplify=True
                 onnx_path = model_to_export.export(format='onnx', imgsz=image_size, simplify=True, opset=12)
-                print(f"¡Nuevo modelo exportado exitosamente a ONNX!")
-                print(f"Archivo ONNX guardado en: {onnx_path}")
+                print(f"Exported to ONNX!")
+                print(f"ONNX saved in : {onnx_path}")
                 print("-" * 30)
             except Exception as export_error:
-                print(f"\nError durante la exportación a ONNX: {export_error}")
-                print("El re-entrenamiento finalizó, pero la exportación falló.")
-                print("Puedes intentar exportar manualmente usando:")
+                print(f"\nError during export to  ONNX: {export_error}")
+                print("Re-training completed but aborted export")
+                print("Try exporting manually using :")
                 print(f"yolo export model={best_model_path} format=onnx imgsz={image_size} simplify=True opset=12")
         else:
-             print("Advertencia: No se encontró el nuevo archivo 'best.pt'. No se puede exportar a ONNX.")
+             print("Warning 'best.pt' not found")
 
     except Exception as e:
-        print(f"\nError durante el re-entrenamiento: {e}")
+        print(f"\nRetraining not completed, failed:  {e}")

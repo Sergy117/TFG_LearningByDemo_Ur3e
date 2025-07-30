@@ -50,7 +50,7 @@ This directory contains the following key files:
 
 * **train_doll_yolo.py**: The main script for training. It loads a base YOLO model, fine-tunes it on the custom dataset, and exports the best model to ONNX.
 
-* **test_onnx_inference.py**: A utility script to load the final .onnx model and test its inference on a sample image.
+* **test_onnx_inference.py**: A utility script to load the final .onnx model and test its inference on a live video test.
 
 * **data.yaml**: The crucial dataset configuration file for YOLO. It specifies the paths to the training/validation sets and the class names.
 

@@ -3,8 +3,15 @@ import glob
 import random
 import shutil
 import argparse 
-
-# --- Configuración ---
+"""
+This code belong to https://github.com/Sergy117/TFG_LearningByDemo_Ur3e
+Developed by Sergio Gonzalez Rodríguez for Unversity of Santiago de Compostela
+owner: meanssergy@gmail.com
+date: 2025
+"""
+"""
+This script is used to split the dataset tagged and downloaded from cvat.ai
+"""
 
 Name_folder_download_Cvat = "DollHeadBody"
 DEFAULT_IMAGE_SOURCE_DIR = f"{Name_folder_download_Cvat}/images/train" #path to ALL the images of the doll
@@ -38,13 +45,13 @@ def split_data(image_dir, label_dir, dest_dir, train_ratio, img_ext):
     if not os.path.isdir(label_dir):
         print(f"Error: Labels directory '{label_dir}' doesnt exist.")
         return
-    # Encontrar todas las imágenes
+    # Finding all images
     image_files = glob.glob(os.path.join(image_dir, f'*{img_ext}'))
     if not image_files:
         print(f"Error: Not '{img_ext}' in '{image_dir}'.")
         return
 
-    print(f"Se encontraron {len(image_files)} imágenes.")
+    print(f"found {len(image_files)} images.")
 
     # Shuffle images for randomizing valid and train images
     random.shuffle(image_files)
@@ -54,7 +61,7 @@ def split_data(image_dir, label_dir, dest_dir, train_ratio, img_ext):
     num_train = int(total_images * train_ratio)
     num_valid = total_images - num_train
 
-    print(f"Dividiing: {num_train} for training, {num_valid} for validation.")
+    print(f"Dividing: {num_train} for training, {num_valid} for validation.")
 
     # Destiny directories
     create_dirs(dest_dir)
@@ -64,7 +71,7 @@ def split_data(image_dir, label_dir, dest_dir, train_ratio, img_ext):
     copied_valid_count = 0
     missing_label_count = 0
 
-    # Copiar to train
+    # Copy to train
     for i in range(num_train):
         img_path = image_files[i]
         base_filename = os.path.splitext(os.path.basename(img_path))[0]
@@ -75,14 +82,14 @@ def split_data(image_dir, label_dir, dest_dir, train_ratio, img_ext):
         dest_label_path_train = os.path.join(dest_dir, "labels", "train", label_filename)
 
         if os.path.exists(label_path):
-            shutil.copy2(img_path, dest_img_path_train) # copy2 preserva metadatos
+            shutil.copy2(img_path, dest_img_path_train) # copy2 preserv metadata
             shutil.copy2(label_path, dest_label_path_train)
             copied_train_count += 1
         else:
             print(f"Warning: No label for'{label_filename}' for image '{os.path.basename(img_path)}'. This pair is omited.")
             missing_label_count += 1
 
-    # Copiar to validate
+    # Copy to validate
     for i in range(num_train, total_images):
         img_path = image_files[i]
         base_filename = os.path.splitext(os.path.basename(img_path))[0]

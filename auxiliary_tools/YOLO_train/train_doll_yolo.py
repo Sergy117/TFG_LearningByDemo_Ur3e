@@ -1,7 +1,16 @@
 from ultralytics import YOLO
 import os
 import torch # To checck CUDA compatibility
-
+"""
+This code belong to https://github.com/Sergy117/TFG_LearningByDemo_Ur3e
+Developed by Sergio Gonzalez Rodríguez for Unversity of Santiago de Compostela
+owner: meanssergy@gmail.com
+date: 2025
+"""
+"""
+This script is used to train YOLO model and export o ONNX 
+Have the dataset splitted before running this script
+"""
 # --- Training config ---
 yaml_file_path = 'data.yaml'
 
