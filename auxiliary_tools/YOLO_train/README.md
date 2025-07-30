@@ -1,13 +1,13 @@
 ---
-#Custom YOLO Model Training for Doll Detection
+Custom YOLO Model Training for Doll Detection
 ---
-## 📝 Description
+## Description
 
 This folder contains the complete pipeline and all necessary scripts to train a custom YOLOv8 object detection model. The model is fine-tuned to detect two specific classes required for the main robotic task: doll_head and doll_body.
 
 The final output of this process is a best.onnx file, a lightweight and framework-independent model format used for real-time inference in the main vision system.
 
-## 🔄 Methodology / Workflow
+## Methodology / Workflow
 
 * The end-to-end process for creating the custom detector follows these steps:
 
@@ -23,7 +23,7 @@ The final output of this process is a best.onnx file, a lightweight and framewor
 
     * **Testing (Optional)**: Use the test_onnx_inference.py script to perform a quick inference test on the exported .onnx model to ensure it loads and works correctly.
 
-## ⚙️ Dependencies
+## Dependencies
 
 All required Python libraries are listed in the requirements.txt file. You can install them using pip:
 Bash
@@ -40,7 +40,7 @@ This will typically install libraries such as:
 
     numpy
 
-## 📁 File Structure
+## File Structure
 
 This directory contains the following key files:
 
@@ -56,7 +56,7 @@ This directory contains the following key files:
 
 * **requirements.txt**: Lists all Python dependencies for this training environment.
 
-## 🚀 Step-by-Step Instructions
+## Step-by-Step Instructions
 
 * **Step 1**: Data Collection (cap.py)
 
@@ -116,6 +116,6 @@ Run the test script to load the ONNX model and perform detection on a test image
 ```sh
     python3 test_onnx_inference.py
 ``` 
-## 🏁 Final Output
+## Final Output
 
 The primary artifact of this entire process is the best.onnx model file. This is the final, optimized model that should be used by the main teleoperation project for real-time object detection.

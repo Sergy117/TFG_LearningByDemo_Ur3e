@@ -52,7 +52,7 @@ else:
             #export the best model
             model_to_export = YOLO(best_model_path)
 
-            # Exportar
+            # Export
             try:
                 onnx_path = model_to_export.export(format='onnx', imgsz=image_size) # Usa el mismo imgsz
                 print(f"Model exported to ONNX!")
