@@ -199,7 +199,7 @@ print(" 'f' -> Finalizar y guardar demostración actual")
 print(" 'q' -> Salir del programa")
 print("---------------------\n")
 print("Esperando para iniciar la primera demostración... Presiona 'd'.")
-# --- <<< NUEVO: Estado del Flujo de Grabación >>> ---
+
 is_recording = False # Empieza en modo de espera
 demo_counter = 0 # Contador para carpetas de demostraciones
 #----------------------------------------------------- MAIN LOOP ---------------------------------------------------------------------------
