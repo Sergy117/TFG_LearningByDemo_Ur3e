@@ -327,20 +327,20 @@ def save_segmented_trajectories(phase_name, active_trajectory_buffers, output_fo
     # List of keys the keys that should save in list and buffers
     keys_to_save = [kp for kp in KEY_POINTS_TO_SAVE_FOR_ROBOT if kp in active_trajectory_buffers]
     
-    # Comprobar si hay datos para guardar en las claves seleccionadas
+    # Check if there is data to save on the preselected keys
     if not any(active_trajectory_buffers.get(key) for key in keys_to_save):
         print(f"No data in buffers for relevant keys in phase {phase_name}, segment {segment_counter}. Skipping save.")
         return
 
-    # Determinar el número de frames (todas las listas deben tener la misma longitud)
-    # Esto está garantizado por la nueva lógica de acumulación que añade None
+    # Determine the number of frames, all list must have same lenght
+    # This is granted with logic of acumulation of Nones
     num_frames = len(active_trajectory_buffers[keys_to_save[0]])
     
     timestamp_str = datetime.now().strftime('%Y%m%d_%H%M%S_%f')[:-3]
     filename = f"segment_{segment_counter:03d}_{phase_name}_{timestamp_str}.csv"
     filepath = os.path.join(output_folder, filename)
 
-    # Crear la cabecera del CSV
+    # Create CSV
     header = []
     for key_point_name in keys_to_save:
         if "angle" in key_point_name.lower():
@@ -348,7 +348,7 @@ def save_segmented_trajectories(phase_name, active_trajectory_buffers, output_fo
         else:
             header.extend([f"{key_point_name}_x", f"{key_point_name}_y", f"{key_point_name}_z"])
     
-    print(f"Guardando segmento consolidado {segment_counter} ({phase_name}) con {num_frames} frames en: {filepath}")
+    print(f"Saving segment {segment_counter} ({phase_name}) with {num_frames} frames in: {filepath}")
     
     with open(filepath, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
@@ -360,7 +360,7 @@ def save_segmented_trajectories(phase_name, active_trajectory_buffers, output_fo
                 data_item = active_trajectory_buffers[key_point_name][i]
 
                 if data_item is None:
-                    # Escribir strings vacíos si el dato es None
+                    # Write empty spaces if the data is None
                     if "angle" in key_point_name.lower():
                         row_data.append('') 
                     else:
@@ -370,155 +370,16 @@ def save_segmented_trajectories(phase_name, active_trajectory_buffers, output_fo
                 elif isinstance(data_item, list) and len(data_item) == 3:
                     row_data.extend(data_item)
                 else:
-                    # Dato inesperado, escribir Nones
+                    # Unexpected data, write Nones
                     if "angle" in key_point_name.lower(): row_data.append('')
                     else: row_data.extend(['', '', ''])
             
             writer.writerow(row_data)
     
-    # La limpieza de búferes ahora se gestiona en el script principal al iniciar una nueva demo
-    # Pero por si acaso, podemos limpiarlos aquí también después de guardar.
+    # Cleaning buffers
     for key in active_trajectory_buffers:
         active_trajectory_buffers[key].clear()
-"""
-def save_segmented_trajectories(phase_name, active_trajectory_buffers, output_folder, segment_counter):
-    if not any(active_trajectory_buffers.values()):
-        print(f"No data in buffers for phase {phase_name}, segment {segment_counter}. Skipping save.")
-        return
 
-    valid_lengths = []
-    # Ensure all keys we want to save are actually in the buffers and have data
-    # This also implicitly defines the order in the CSV
-    keys_present_in_buffers = [kp for kp in KEY_POINTS_TO_SAVE_FOR_ROBOT if kp in active_trajectory_buffers and active_trajectory_buffers[kp]]
-
-    if not keys_present_in_buffers:
-        print(f"None of the specified KEY_POINTS_TO_SAVE_FOR_ROBOT are in buffers for phase {phase_name}. Skipping.")
-        return
-
-    for kp in keys_present_in_buffers:
-         valid_lengths.append(len(active_trajectory_buffers[kp]))
-
-    if not valid_lengths: # Should be redundant due to above check, but for safety
-        print(f"No data for specified KEY_POINTS_TO_SAVE_FOR_ROBOT in phase {phase_name}. Skipping save.")
-        return
-
-    num_frames = min(valid_lengths)
-    if num_frames == 0:
-        print(f"Zero frames recorded for phase {phase_name}. Skipping save.")
-        return
-
-    timestamp_str = datetime.now().strftime('%Y%m%d_%H%M%S_%f')[:-3]
-    filename = f"segment_{segment_counter:03d}_{phase_name}_{timestamp_str}.csv"
-    filepath = os.path.join(output_folder, filename)
-
-    header = []
-    for key_point_name in keys_present_in_buffers: # Iterate over keys actually present
-        if "angle" in key_point_name.lower(): # Simple check for angle data
-            header.append(f"{key_point_name}_value") # e.g., right_hand_rotation_angle_value
-        else:
-            header.extend([f"{key_point_name}_x", f"{key_point_name}_y", f"{key_point_name}_z"])
-
-    print(f"Saving consolidated segment {segment_counter} ({phase_name}) with {num_frames} frames to {filepath}")
-    #print(f"Header: {header}") # Debug print header
-
-    with open(filepath, 'w', newline='') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(header)
-
-        for i in range(num_frames):
-            row_data = []
-            for key_point_name in keys_present_in_buffers: # Iterate in the same order as header
-                # It's crucial that active_trajectory_buffers[key_point_name] has at least 'i' elements
-                # num_frames = min(lengths) should ensure this.
-                data_item = active_trajectory_buffers[key_point_name][i]
-
-                if data_item is None: # Handle None values by writing empty string
-                    if "angle" in key_point_name.lower():
-                        row_data.append('') 
-                    else:
-                        row_data.extend(['', '', ''])
-                elif "angle" in key_point_name.lower(): # Scalar angle data
-                    row_data.append(data_item) # Assumes data_item is a scalar
-                elif isinstance(data_item, list) and len(data_item) == 3: # x,y,z point data
-                    row_data.extend(data_item)
-                else: # Unexpected data format for a point
-                    print(f"Warning: Unexpected data format for point {key_point_name} at frame {i}: {data_item}. Writing Nones.")
-                    row_data.extend(['', '', ''])
-
-            writer.writerow(row_data)
-
-    # Clear all buffers that were part of KEY_POINTS_TO_SAVE_FOR_ROBOT and were present
-    for key_point_name in keys_present_in_buffers:
-        active_trajectory_buffers[key_point_name].clear()
-    # Also clear other buffers that might exist but weren't saved, to be clean for next segment
-    other_keys = [k for k in active_trajectory_buffers if k not in keys_present_in_buffers]
-    for k_other in other_keys:
-        active_trajectory_buffers[k_other].clear()
-"""
-"""
-def save_segmented_trajectories(phase_name, active_trajectory_buffers, output_folder, segment_counter):
-    #Saves all relevant keypoint trajectories for a given action phase into a SINGLE CSV file.
-    #Each row in the CSV represents a frame, and columns represent x,y,z for each keypoint.
-    
-    if not any(active_trajectory_buffers.values()): # Check if any buffer has data
-        print(f"No data in buffers for phase {phase_name}, segment {segment_counter}. Skipping save.")
-        return
-
-    # Determine the number of frames (length of the shortest trajectory for safety, though they should be same)
-    # Only consider trajectories for KEY_POINTS_TO_SAVE_FOR_ROBOT
-    valid_lengths = [len(active_trajectory_buffers[kp]) for kp in KEY_POINTS_TO_SAVE_FOR_ROBOT if kp in active_trajectory_buffers and active_trajectory_buffers[kp]]
-    if not valid_lengths:
-        print(f"No data for specified KEY_POINTS_TO_SAVE_FOR_ROBOT in phase {phase_name}. Skipping save.")
-        return
-    num_frames = min(valid_lengths)
-    if num_frames == 0:
-        print(f"Zero frames recorded for phase {phase_name}. Skipping save.")
-        return
-
-    timestamp_str = datetime.now().strftime('%Y%m%d_%H%M%S_%f')[:-3] # Milliseconds
-    filename = f"segment_{segment_counter:03d}_{phase_name}_{timestamp_str}.csv"
-    filepath = os.path.join(output_folder, filename)
-
-    # Create header
-    header = []
-    for key_point_name in KEY_POINTS_TO_SAVE_FOR_ROBOT:
-        header.extend([f"{key_point_name}_x", f"{key_point_name}_y", f"{key_point_name}_z"])
-
-    print(f"Saving consolidated segment {segment_counter} ({phase_name}) with {num_frames} frames to {filepath}")
-
-    with open(filepath, 'w', newline='') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerow(header) # Write header
-
-        for i in range(num_frames):
-            row_data = []
-            all_points_available_for_frame = True
-            for key_point_name in KEY_POINTS_TO_SAVE_FOR_ROBOT:
-                if key_point_name in active_trajectory_buffers and i < len(active_trajectory_buffers[key_point_name]):
-                    point_xyz = active_trajectory_buffers[key_point_name][i] # point_xyz is [x, y, z]
-                    if point_xyz is not None and len(point_xyz) == 3:
-                         row_data.extend(point_xyz)
-                    else: # Handle if a specific point is None for a frame (should not happen if logic is correct)
-                        row_data.extend([None, None, None]) # Or some placeholder like np.nan
-                        print(f"Warning: Missing data for {key_point_name} at frame {i} in segment {segment_counter}")
-                        all_points_available_for_frame = False # Mark if any point is missing
-                else: # Should not happen if num_frames is calculated from valid_lengths
-                    row_data.extend([None, None, None])
-                    print(f"Error: Data inconsistency for {key_point_name} at frame {i} in segment {segment_counter}")
-                    all_points_available_for_frame = False
-
-
-            if all_points_available_for_frame: # Only write row if all key points for this frame were valid
-                writer.writerow(row_data)
-            # else:
-                # print(f"Skipping frame {i} in segment {segment_counter} due to missing point data.")
-
-
-    # Clear buffers after saving (original behavior)
-    for key_point_name in active_trajectory_buffers:
-        active_trajectory_buffers[key_point_name].clear()
-"""
-# En vision_utils.py
 def get_hand_orientation_matrix(hand_landmarks_3d):
     if hand_landmarks_3d is None or len(hand_landmarks_3d) < 21:
         return None
@@ -526,49 +387,41 @@ def get_hand_orientation_matrix(hand_landmarks_3d):
     p0 = hand_landmarks_3d[0]  # Wrist
     p5 = hand_landmarks_3d[5]  # INDEX_FINGER_MCP
     p17 = hand_landmarks_3d[17] # PINKY_MCP
-
-    # Eje X (aproximadamente a lo largo de la mano, de muñeca a dedos)
-    # Podrías usar un punto medio entre p5 y p9 (MIDDLE_FINGER_MCP) o p5 y p17
-    # O más simple: p5 - p0
-    x_axis = (p5 - p0) + (p17 - p0) # Suma de vectores para una dirección media
+    # Define x axis from wrist to fingers
+    x_axis = (p5 - p0) + (p17 - p0) # We use an average direction summing vectors
     if np.linalg.norm(x_axis) < 1e-6: return None
     x_axis = x_axis / np.linalg.norm(x_axis)
 
-    # Eje Z (normal a la palma, usando el método de tu estimate_hand_rotation)
-    v1 = p5 - p0  # Vector de muñeca a MCP del índice
-    v2 = p17 - p0 # Vector de muñeca a MCP del meñique
-    z_axis = np.cross(v1, v2)
+    # Define z axis with the normal(perpenticular) of the hand
+    v1 = p5 - p0  # Vector of wrist to index
+    v2 = p17 - p0 # Vector of wrist to pinky
+    z_axis = np.cross(v1, v2) #The cross multiplication of two vectors, gives the normal that defines Z axis
     if np.linalg.norm(z_axis) < 1e-6: return None
-    z_axis = z_axis / np.linalg.norm(z_axis)
+    z_axis = z_axis / np.linalg.norm(z_axis) 
 
-    # Eje Y (producto cruzado para asegurar ortogonalidad)
+    # Define y axis using cross product for securing orthogonality
     y_axis = np.cross(z_axis, x_axis)
     if np.linalg.norm(y_axis) < 1e-6: return None
     y_axis = y_axis / np.linalg.norm(y_axis)
 
-    # Re-calcular eje X para que sea perfectamente ortogonal (opcional pero bueno)
-    x_axis = np.cross(y_axis, z_axis)
-
-    # Construir la matriz de rotación
-    # Columnas son los ejes del nuevo sistema en términos del sistema original
+    # Use this axis for defining matrix
     rotation_matrix = np.column_stack((x_axis, y_axis, z_axis))
     return rotation_matrix
 
-# <<< NUEVA FUNCIÓN >>>
 def estimate_hand_rotation_from_pose(pose_landmarks_3d, hand="Right"):
     """
-    Calcula el ángulo de rotación de la mano usando los landmarks de MediaPipe Pose.
+    Calculates rotation angle of the hand using Mediapipe Pose instead of Mediapipe hands if needed
     """
     if pose_landmarks_3d is None or len(pose_landmarks_3d) < 23:
         return None
 
     try:
-        # Índices para la mano derecha en MediaPipe Pose
+        # Index if the hand tracking is Right
         if hand == "Right":
             p_wrist = pose_landmarks_3d[16]
             p_index = pose_landmarks_3d[20]
             p_pinky = pose_landmarks_3d[18]
-        # Índices para la mano izquierda
+        # Index if the hand tracking is Left
         elif hand == "Left":
             p_wrist = pose_landmarks_3d[15]
             p_index = pose_landmarks_3d[19]
@@ -576,24 +429,23 @@ def estimate_hand_rotation_from_pose(pose_landmarks_3d, hand="Right"):
         else:
             return None
 
-        # Asegurarse de que los puntos son válidos (no None y no [0,0,0])
+        # Filtering no valid points
         if any(p is None for p in [p_wrist, p_index, p_pinky]) or \
            any(np.all(p == 0) for p in [p_wrist, p_index, p_pinky]):
             return None
 
-        # Vectores desde la muñeca a los nudillos del índice y meñique
+        # Vectors from wrist to index and pinky knuckles
         v1 = np.array(p_index) - np.array(p_wrist)
         v2 = np.array(p_pinky) - np.array(p_wrist)
 
-        # Vector normal al plano de la palma (producto cruzado)
+        # Cross vector to define the normal of the plane
         normal = np.cross(v1, v2)
         normal = normal / np.linalg.norm(normal)
 
-        # Proyección del vector normal en el plano XY para calcular el ángulo
-        # (Esta lógica es la misma que en tu función original)
+        # Proyection of the normal vector of XY to calculate angle
         angle = np.arctan2(normal[1], normal[0])
         return np.degrees(angle)
 
     except (IndexError, TypeError, ValueError) as e:
-        # print(f"Error al calcular ángulo desde pose: {e}") # Para depurar
+        print(f"Error calculating angle from pose : {e}")
         return None
