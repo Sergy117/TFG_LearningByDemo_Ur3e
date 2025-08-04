@@ -16,9 +16,9 @@ RELEVANT_POINTS = [11, 12, 13, 14, 15, 16, 23, 24] # Shoulder, elbow, wrist
 import collections
 
 class StreamingMovingAverage:
-    """Calcula la media móvil de una secuencia de datos en tiempo real."""
+    """Calculate average of a data secuence in real time."""
     def __init__(self, window_size):
-        if window_size <= 0: raise ValueError("El tamaño de la ventana debe ser un entero positivo.")
+        if window_size <= 0: raise ValueError("Window size should be positive.")
         self.window_size = window_size
         self.values = collections.deque(maxlen=window_size)
         self.sum = 0.0
@@ -311,13 +311,11 @@ def detect_objects(image, net, conf_threshold, nms_threshold, input_width, input
 
 # --- Data Saving Function ---
 
-#KEY_POINTS_TO_SAVE_FOR_ROBOT = ["right_shoulder", "right_elbow", "right_hand"] # Ajusta según necesites
-# Asegúrate de que esta lista incluya todos los datos que quieres guardar
+#KEY_POINTS_TO_SAVE_FOR_ROBOT = ["right_shoulder", "right_elbow", "right_hand"] 
 #KEY_POINTS_TO_SAVE_FOR_ROBOT = ["right_shoulder", "right_elbow", "right_hand", "right_hand_rotation_angle"]
-# En vision_utils.py
 KEY_POINTS_TO_SAVE_FOR_ROBOT = [
     "right_shoulder", "right_elbow", "right_hand", 
-    "left_shoulder", "right_hip", # <<< AÑADIDO
+    "left_shoulder", "right_hip", 
     "right_hand_rotation_angle"
 ]
 def save_segmented_trajectories(phase_name, active_trajectory_buffers, output_folder, segment_counter):
@@ -326,7 +324,7 @@ def save_segmented_trajectories(phase_name, active_trajectory_buffers, output_fo
     Each row in the CSV represents a frame, and columns represent x,y,z for each keypoint.
     Handles scalar values (like angles) and None values gracefully.
     """
-    # Lista de claves que realmente se guardarán (deben estar en la lista y en los buffers)
+    # List of keys the keys that should save in list and buffers
     keys_to_save = [kp for kp in KEY_POINTS_TO_SAVE_FOR_ROBOT if kp in active_trajectory_buffers]
     
     # Comprobar si hay datos para guardar en las claves seleccionadas
