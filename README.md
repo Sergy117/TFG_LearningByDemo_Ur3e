@@ -22,6 +22,7 @@ The primary goal is to develop and validate a robust kinematic mapping pipeline 
 * **Human-to-Robot Kinematic Mapping**: A sophisticated "translator" that converts the human operator's pose into robot joint angles, resolving morphological and coordinate system differences.
 
 **MAPPING GIF**
+![Grabacindepantalladesde06-08-25164612-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/d6613a9b-de92-4ef8-a034-70673a0a577b)
 
 
 * **Learning from Demonstration (LfD)**: Employs Dynamic Movement Primitives (DMPs) to learn complex trajectories from multiple human demonstrations.
