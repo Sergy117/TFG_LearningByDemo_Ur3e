@@ -19,9 +19,10 @@ The primary goal is to develop and validate a robust kinematic mapping pipeline 
 **WHOLE VISION SYSTEM WORKING GIF**
 ![demoj_Hpm9b2og(2)](https://github.com/user-attachments/assets/9c0ac0f2-b11f-49a4-9c66-77ac8f5d0a7b)
 
-* **Human-to-Robot Kinematic Mapping**: A sophisticated "translator" that converts the human operator's pose into robot joint angles, resolving morphological and coordinate system differences.
+* **Human-to-Robot Kinematic Mapping**: A "translator" that converts the human operator's pose into robot joint angles, resolving morphological and coordinate system differences.
 
-**MAPPING GIF**
+The blue dot and arm represents the human wrist and human arm in the demo, and the green dot and arm, the final efector of the robot and the robotic arm
+
 ![Grabacindepantalladesde06-08-25164612-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/d6613a9b-de92-4ef8-a034-70673a0a577b)
 
 
