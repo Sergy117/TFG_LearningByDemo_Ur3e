@@ -14,7 +14,7 @@ The primary goal is to develop and validate a robust kinematic mapping pipeline 
 * **3D Human Pose Estimation**: Implements MediaPipe Pose for real-time detection of 33 body landmarks.
 
 * **Custom Object Detection**: Integrates a custom-trained YOLOv8 model, exported to the ONNX format, for detecting task-relevant objects.
-* 
+
 **WHOLE VISION SYSTEM WORKING GIF**
 ![demoj_Hpm9b2og(2)](https://github.com/user-attachments/assets/9c0ac0f2-b11f-49a4-9c66-77ac8f5d0a7b)
 
