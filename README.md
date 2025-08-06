@@ -14,14 +14,19 @@ The primary goal is to develop and validate a robust kinematic mapping pipeline 
 * **3D Human Pose Estimation**: Implements MediaPipe Pose for real-time detection of 33 body landmarks.
 
 * **Custom Object Detection**: Integrates a custom-trained YOLOv8 model, exported to the ONNX format, for detecting task-relevant objects.
-
+* 
+**WHOLE VISION SYSTEM WORKING GIF**
 ![demoj_Hpm9b2og(2)](https://github.com/user-attachments/assets/9c0ac0f2-b11f-49a4-9c66-77ac8f5d0a7b)
 
 * **Human-to-Robot Kinematic Mapping**: A sophisticated "translator" that converts the human operator's pose into robot joint angles, resolving morphological and coordinate system differences.
+**MAPPING GIF**
+![DemoPose3d-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/21ad5733-7c33-4904-bebd-46e633c45e68)
+
 
 * **Learning from Demonstration (LfD)**: Employs Dynamic Movement Primitives (DMPs) to learn complex trajectories from multiple human demonstrations.
 
 * **Robot Control in ROS**: Integrates with ROS Noetic and MoveIt! for safe control of the UR3e robot, both in simulation (RViz) and on the real hardware.
+  
 
 ## System Architecture
 
