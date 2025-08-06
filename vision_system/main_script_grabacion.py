@@ -16,38 +16,34 @@ import numpy as np
 import mediapipe as mp
 import pyrealsense2 as rs
 import open3d as o3d
-# from collections import deque # Not used anymore
 import csv # Used in vision_utils
 from datetime import datetime
 import time # For FPS and Kalman dt
 import random # For colors
-
-# <<< Import the auxiliary functions >>>
 import vision_utils as vu
 
 """
 --------------------------------------------------Configuration and prerequisites---------------------------------------
 """
 # --- ONNX Model Configuration ---
-# !!! Make sure this path is correct !!!
+# Make sure this path is correct 
 #ONNX_MODEL_PATH = '/home/sergio/Escritorio/PracticasTFG/LBDOARABOHG/vision/models/best.onnx'
 ONNX_MODEL_PATH = '/home/sergio/Escritorio/PracticasTFG/Trayectoria/dataset_yolo_split/runs/detect/doll_yolov8n_run2/weights/best.onnx' # Using run 2
-# !!! Make sure this file exists and has the correct content !!!
+# Make sure this file exists and has the correct content !
 # (Eg: line 1: doll_head, line 2: doll_body)
 CLASSES_PATH = './models/doll.names'
 CONFIDENCE_THRESHOLD_YOLO = 0.4 # Threshold for YOLO detection
 NMS_THRESHOLD_YOLO = 0.4      # Threshold for NMS in YOLO
 INPUT_WIDTH_YOLO = 640        # Input width for YOLO (from export)
 INPUT_HEIGHT_YOLO = 640       # Input height for YOLO (from export)
-TARGET_CLASS_FOR_INTERACTION = "doll_head" # <<< CHANGED: Target class for interaction/distance/angle
-SEPARATION_DISTANCE_THRESHOLD = 0.3 # <<< NEW: Threshold to consider head and body separated (tune this)
+TARGET_CLASS_FOR_INTERACTION = "doll_head" # Target class for interaction/distance/angle
+SEPARATION_DISTANCE_THRESHOLD = 0.3 # Threshold to consider head and body separated (tune this)
 
 # Load YOLO Class Names
 try:
     with open(CLASSES_PATH, 'r') as f:
         CLASS_NAMES_YOLO = [line.strip() for line in f.readlines()]
     # Generate random colors for each class for 2D drawing
-    # random.seed(42) # Use fixed seed for consistent colors
     COLORS_YOLO = np.random.uniform(50, 200, size=(len(CLASS_NAMES_YOLO), 3))
     print(f"YOLO Classes loaded: {CLASS_NAMES_YOLO}")
 except Exception as e:
@@ -98,7 +94,7 @@ except Exception as e:
     print(f"Error initializing RealSense cameras: {e}"); exit()
 
 # Load Calibration Data
-calibration_dir = "./cal/data" # <<< Adjusted path - make sure this is correct relative to script location
+calibration_dir = "./cal/data" # make sure this is correct relative to script location
 try:
     cameraMatrix1 = np.load(os.path.join(calibration_dir, "camera_matrix_cam1.npy"))
     distCoeffs1 = np.load(os.path.join(calibration_dir, "dist_coeffs_cam1.npy"))
@@ -153,7 +149,7 @@ current_action_state = STATE_IDLE
 active_trajectory_buffers = {
     "left_shoulder": [], "left_elbow": [], "left_hand": [],
     "right_shoulder": [], "right_elbow": [], "right_hand": [],
-    "right_hip": [], # <<< AÑADIDO
+    "right_hip": [],
     "right_hand_rotation_angle": [] 
 }
 angle_at_grasp = None
@@ -191,19 +187,20 @@ last_measurement_time = time.time()
 
 # Variable to store previous unwrapped angle for continuity
 prev_unwrapped_angle = None
-angle_filter = vu.StreamingMovingAverage(window_size=3) # <<< AÑADIDO
+angle_filter = vu.StreamingMovingAverage(window_size=3) 
 print("\nStarting Main Loop...")
-print("\n--- INSTRUCCIONES ---")
-print(" 'd' -> Iniciar nueva demostración")
-print(" 'f' -> Finalizar y guardar demostración actual")
-print(" 'q' -> Salir del programa")
+print ("\n -- PROCCEDURE --")
+print(" 'd' -> Start new demo ")
+print(" 'f' -> Finish and save demo")
+print(" 'q' -> Exit the program")
+print(" 'c' -> Cancel the actual demo")
 print("---------------------\n")
-print("Esperando para iniciar la primera demostración... Presiona 'd'.")
+print("Starting program, press 'd' to start demo.")
 
-is_recording = False # Empieza en modo de espera
-demo_counter = 0 # Contador para carpetas de demostraciones
+is_recording = False # start waiting for recording
+demo_counter = 0 # Counter for demos
 #----------------------------------------------------- MAIN LOOP ---------------------------------------------------------------------------
-frame_count = 0
+frame_count = 0 #Counter for frames
 while True:
     frame_count += 1
     current_time = time.time()
@@ -232,26 +229,32 @@ while True:
     mp_hands2r_2d, mp_hands2l_2d, hlnd_list2 = vu.capture_hand_points(image2, hands_model)
 
     # --- 3. 2D Hand Tracking (Optical Flow Fallback) ---
-    # ... (OF logic for left hand - same as before, updates hands1l_current, hands2l_current) ...
+    # ... (OF logic for left hand - updates hands1l_current, hands2l_current) ...
     hands1l_current, hands2l_current = None, None; left_hand_source = "None"
     if mp_hands1l_2d is not None and mp_hands2l_2d is not None: hands1l_current, hands2l_current, prev_points1l, prev_points2l, left_hand_source = mp_hands1l_2d, mp_hands2l_2d, mp_hands1l_2d, mp_hands2l_2d, "MediaPipe"
     elif prev_gray1 is not None and prev_gray2 is not None and prev_points1l is not None and prev_points2l is not None:
         try:
-            next_points1l, status1, _ = cv2.calcOpticalFlowPyrLK(prev_gray1, gray1, prev_points1l, None, **lk_params); next_points2l, status2, _ = cv2.calcOpticalFlowPyrLK(prev_gray2, gray2, prev_points2l, None, **lk_params)
+            next_points1l, status1, _ = cv2.calcOpticalFlowPyrLK(prev_gray1, gray1, prev_points1l, None, **lk_params)
+            next_points2l, status2, _ = cv2.calcOpticalFlowPyrLK(prev_gray2, gray2, prev_points2l, None, **lk_params)
             if next_points1l is not None and status1 is not None and next_points2l is not None and status2 is not None:
-                combined_status = (status1.ravel() == 1) & (status2.ravel() == 1); good_new1 = next_points1l[combined_status]; good_new2 = next_points2l[combined_status]
+                combined_status = (status1.ravel() == 1) & (status2.ravel() == 1)
+                good_new1 = next_points1l[combined_status]
+                good_new2 = next_points2l[combined_status]
                 if len(good_new1) > 10 and len(good_new2) > 10 : hands1l_current, hands2l_current, prev_points1l, prev_points2l, left_hand_source = good_new1.reshape(-1, 1, 2), good_new2.reshape(-1, 1, 2), good_new1.reshape(-1, 1, 2), good_new2.reshape(-1, 1, 2), "OpticalFlow"
                 else: prev_points1l, prev_points2l, left_hand_source = None, None, "TrackingFailed"
             else: prev_points1l, prev_points2l, left_hand_source = None, None, "TrackingFailed"
         except cv2.error as e: print(f"Error OF Left: {e}"); prev_points1l, prev_points2l, left_hand_source = None, None, "TrackingFailed"
-    # ... (OF logic for right hand - same as before, updates hands1r_current, hands2r_current) ...
+    # ... (OF logic for right hand, updates hands1r_current, hands2r_current) ...
     hands1r_current, hands2r_current = None, None; right_hand_source = "None"
     if mp_hands1r_2d is not None and mp_hands2r_2d is not None: hands1r_current, hands2r_current, prev_points1r, prev_points2r, right_hand_source = mp_hands1r_2d, mp_hands2r_2d, mp_hands1r_2d, mp_hands2r_2d, "MediaPipe"
     elif prev_gray1 is not None and prev_gray2 is not None and prev_points1r is not None and prev_points2r is not None:
         try:
-            next_points1r, status1r, _ = cv2.calcOpticalFlowPyrLK(prev_gray1, gray1, prev_points1r, None, **lk_params); next_points2r, status2r, _ = cv2.calcOpticalFlowPyrLK(prev_gray2, gray2, prev_points2r, None, **lk_params)
+            next_points1r, status1r, _ = cv2.calcOpticalFlowPyrLK(prev_gray1, gray1, prev_points1r, None, **lk_params)
+            next_points2r, status2r, _ = cv2.calcOpticalFlowPyrLK(prev_gray2, gray2, prev_points2r, None, **lk_params)
             if next_points1r is not None and status1r is not None and next_points2r is not None and status2r is not None:
-                combined_status_r = (status1r.ravel() == 1) & (status2r.ravel() == 1); good_new1r = next_points1r[combined_status_r]; good_new2r = next_points2r[combined_status_r]
+                combined_status_r = (status1r.ravel() == 1) & (status2r.ravel() == 1)
+                good_new1r = next_points1r[combined_status_r]
+                good_new2r = next_points2r[combined_status_r]
                 if len(good_new1r) > 10 and len(good_new2r) > 10: hands1r_current, hands2r_current, prev_points1r, prev_points2r, right_hand_source = good_new1r.reshape(-1, 1, 2), good_new2r.reshape(-1, 1, 2), good_new1r.reshape(-1, 1, 2), good_new2r.reshape(-1, 1, 2), "OpticalFlow"
                 else: prev_points1r, prev_points2r, right_hand_source = None, None, "TrackingFailed"
             else: prev_points1r, prev_points2r, right_hand_source = None, None, "TrackingFailed"
@@ -356,7 +359,6 @@ while True:
     # Update global variables
     obj_3d = obj_3d_filtered_head  # Main interaction object is the FILTERED HEAD position
     box_3d_points = current_box_3d_points # Visualization box is based on head detection / fallback
-    # obj_3d_body is now available for the state machine (can be None)
 
     # *********************************************************************
     # ***** END: BLOCK FOR YOLO OBJECT PROCESSING & KALMAN FILTER *****
@@ -383,7 +385,7 @@ while True:
     )
 
     current_unwrapped_angle = None
-
+    #Normalize angles
     if raw_monitored_angle is not None:
         if prev_unwrapped_angle is None:
             current_unwrapped_angle = raw_monitored_angle
@@ -402,12 +404,10 @@ while True:
         prev_unwrapped_angle = None
 
     # Use unwrapped angle
-    # Aplicar filtro si tenemos un valor válido
+    # If valid, use filter
     filtered_angle = None
     if current_unwrapped_angle is not None:
         filtered_angle = angle_filter.process(current_unwrapped_angle)
-
-    # Usa el ángulo filtrado para la máquina de estados y para guardar
     monitored_angle = filtered_angle 
     #monitored_angle = current_unwrapped_angle
 
@@ -427,7 +427,7 @@ while True:
         right_elbow_3d = points_3d[14] if points_3d is not None and len(points_3d) > 14 else None
         left_hand_to_save = hands_left_3d[0] if hands_left_3d is not None and not np.all(hands_left_3d[0]==0) else None
         right_hand_to_save = hands_right_3d[0] if hands_right_3d is not None and not np.all(hands_right_3d[0]==0) else None
-        right_hip_3d = points_3d[24] if points_3d is not None and len(points_3d) > 24 else None # <<< AÑADIDO
+        right_hip_3d = points_3d[24] if points_3d is not None and len(points_3d) > 24 else None 
 
         # Append to buffers, using None as a placeholder if data is missing for a frame
         active_trajectory_buffers["left_shoulder"].append(left_shoulder_3d.tolist() if left_shoulder_3d is not None else None)
@@ -436,7 +436,7 @@ while True:
         active_trajectory_buffers["right_shoulder"].append(right_shoulder_3d.tolist() if right_shoulder_3d is not None else None)
         active_trajectory_buffers["right_elbow"].append(right_elbow_3d.tolist() if right_elbow_3d is not None else None)
         active_trajectory_buffers["right_hand"].append(right_hand_to_save.tolist() if right_hand_to_save is not None else None)
-        active_trajectory_buffers["right_hip"].append(right_hip_3d.tolist() if right_hip_3d is not None else None) # <<< AÑADIDO
+        active_trajectory_buffers["right_hip"].append(right_hip_3d.tolist() if right_hip_3d is not None else None) 
 
         if HAND_TO_MONITOR == "Right":
             active_trajectory_buffers["right_hand_rotation_angle"].append(monitored_angle)
@@ -459,12 +459,12 @@ while True:
                 print(f"Transition: {STATE_ROTATING} -> {STATE_FINAL} (Head SEPARATED from body, Head-Body Dist: {distance_head_body:.3f})")
                 segment_counter += 1; vu.save_segmented_trajectories(f"{STATE_ROTATING}-Separated", active_trajectory_buffers, output_folder, segment_counter); current_action_state = STATE_FINAL; angle_at_grasp = None
         elif current_action_state == STATE_FINAL:
-            # En el estado final, esperamos la tecla 'f' para finalizar la demo. No hacemos nada aquí.
+            # Final state, expecting 'f' to finish
             pass
         if current_action_state != previous_state: print(f"--> Current State: {current_action_state}")
 
     elif current_action_state == STATE_FINAL:
-        print("DEMOSTRACION FINALIZADA")
+        print("FINISHED DEMO")
     if current_action_state != previous_state:
         print(f"--> Current State: {current_action_state}")
 
@@ -477,10 +477,8 @@ while True:
     # Draw Hands
     if hlnd_list1:
         for hand_landmarks in hlnd_list1: mp_drawing.draw_landmarks(processed_image1, hand_landmarks, mp_hands.HAND_CONNECTIONS)
-    # ... (Opcional: Dibujar puntos OF para manos si no usa MP) ...
     if hlnd_list2:
         for hand_landmarks in hlnd_list2: mp_drawing.draw_landmarks(processed_image2, hand_landmarks, mp_hands.HAND_CONNECTIONS)
-    # ... (Opcional: Dibujar puntos OF para manos si no usa MP) ...
     # Draw ALL Object Detections
     for obj in objects1:
         x1_obj, y1_obj, x2_obj, y2_obj, cls_id_obj, cls_name_obj, conf_obj = obj
@@ -547,15 +545,14 @@ while True:
     cv2.putText(processed_image1, f"L:{left_hand_source}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 1)
     cv2.putText(processed_image1, f"R:{right_hand_source}", (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 1)
     cv2.putText(processed_image1, f"STATE: {current_action_state}", (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 2)
-        # <<< MODIFICACIÓN: Añadir indicador de estado de grabación >>>
+
     if is_recording:
         rec_text = "[GRABANDO]"
-        rec_color = (0, 0, 255) # Rojo
+        rec_color = (0, 0, 255) # Red
     else:
         rec_text = "[EN ESPERA]"
-        rec_color = (0, 255, 0) # Verde
+        rec_color = (0, 255, 0) # GREEN
     cv2.putText(processed_image1, rec_text, (500, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, rec_color, 2)
-    # --- FIN MODIFICACIÓN ---
 
     # Show 2D Images
     cv2.imshow('Camera 1 - Pose & Objects', processed_image1)
@@ -640,64 +637,63 @@ while True:
     # Update Renderer
     vis.poll_events()
     vis.update_renderer()
-    # --- 9. End of Loop ---
- # --- 9. <<< MODIFICACIÓN: Control de Flujo de Grabación >>> ---
+ # --- 9. RECORDING SECTOR ---
     key = cv2.waitKey(1) & 0xFF
 
-    if key == ord('d'): # Iniciar/Reiniciar una nueva demostración
+    if key == ord('d'): # Iniciate new demo
         demo_counter += 1
         print("\n" + "="*40)
-        print(f"      INICIANDO NUEVA DEMOSTRACIÓN #{demo_counter}")
+        print(f"      Iniciating new demo {demo_counter}")
         print("="*40)
-        # Resetear todo para un inicio limpio
+        # Reset
         is_recording = True
         current_action_state = STATE_IDLE
         angle_at_grasp = None
         prev_unwrapped_angle = None
         segment_counter = 0
-        # Crear una nueva carpeta para esta demostración específica
+        # New folder for demo
         output_folder = f"action_segments_DEMO-{demo_counter}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
         os.makedirs(output_folder, exist_ok=True)
-        print(f"Guardando segmentos de la Demo #{demo_counter} en: {output_folder}")
-        # Limpiar búferes
+        print(f"Saving segments of the Demo #{demo_counter} in: {output_folder}")
+        # Clean buffer
         for k in active_trajectory_buffers: active_trajectory_buffers[k].clear()
         
-    elif key == ord('f'): # Finalizar la demostración actual
+    elif key == ord('f'): # stop actual demo
         if is_recording:
             print("\n" + "*"*40)
-            print(f"    DEMOSTRACIÓN #{demo_counter} FINALIZADA Y GUARDADA")
+            print(f"    DEMO {demo_counter} FINISHED AND SAVED")
             print("*"*40)
             is_recording = False
-            # Guardar el último segmento activo al finalizar
+            # Save last segment also
             if any(active_trajectory_buffers.values()):
                  segment_counter += 1
                  final_phase_name = f"Final-{current_action_state}"
                  vu.save_segmented_trajectories(final_phase_name, active_trajectory_buffers, output_folder, segment_counter)
-            # Volver al estado de espera
+            # reset states machine
             current_action_state = STATE_IDLE
-            print("\nSistema en [EN ESPERA]. Presiona 'd' para empezar la siguiente demo o 'q' para salir.")
+            print("\nSystem WAITING. Press 'd' to start next demo, or 'q' to exit the program")
         else:
-            print("No hay ninguna grabación en curso para finalizar. Presiona 'd' para empezar una.")
+            print("No recording in progress to finish, press 'd' to start one")
     elif key == ord('c'):
         if is_recording:
             print("\n" + "!"*40)
-            print(f"    DEMOSTRACIÓN #{demo_counter} CANCELADA. Datos descartados.")
+            print(f"    DEMO {demo_counter} CANCELED. Data discarded.")
             print("!"*40)
             is_recording = False
-            # Simplemente limpiamos los búferes sin guardar
+            # Clear buffers without saving them
             for k in active_trajectory_buffers: active_trajectory_buffers[k].clear()
             current_action_state = STATE_IDLE
-            print("\nSistema en [EN ESPERA]. Presiona 'd' para empezar de nuevo.")
+            print("\nSystem WAITING. Press 'd' to start a demo")
         else:
-            print("No hay ninguna grabación en curso para cancelar.")
-    elif key == ord('q'): # Salir del programa
+            print("No demo in progress to cancel")
+    elif key == ord('q'): # Exiting the program
         if is_recording:
-             print("Advertencia: Saliendo mientras una grabación estaba en curso. Guardando datos...")
+             print("WARNING: Exiting while recording, saving data")
              if any(active_trajectory_buffers.values()):
                  segment_counter += 1
                  final_phase_name = f"Final-{current_action_state}"
                  vu.save_segmented_trajectories(final_phase_name, active_trajectory_buffers, output_folder, segment_counter)
-        print("Saliendo del programa.")
+        print("Exiting the program.")
         break
 
 # --- Cleanup ---
