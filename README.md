@@ -12,6 +12,7 @@ The primary goal is to develop and validate a robust kinematic mapping pipeline 
 * **Stereo Vision System**: Utilizes two Intel RealSense cameras for accurate 3D scene reconstruction.
 
 * **3D Human Pose Estimation**: Implements MediaPipe Pose for real-time detection of 33 body landmarks.
+![DemoPose3d-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/21ad5733-7c33-4904-bebd-46e633c45e68)
 
 * **Custom Object Detection**: Integrates a custom-trained YOLOv8 model, exported to the ONNX format, for detecting task-relevant objects.
 
@@ -20,7 +21,6 @@ The primary goal is to develop and validate a robust kinematic mapping pipeline 
 
 * **Human-to-Robot Kinematic Mapping**: A sophisticated "translator" that converts the human operator's pose into robot joint angles, resolving morphological and coordinate system differences.
 **MAPPING GIF**
-![DemoPose3d-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/21ad5733-7c33-4904-bebd-46e633c45e68)
 
 
 * **Learning from Demonstration (LfD)**: Employs Dynamic Movement Primitives (DMPs) to learn complex trajectories from multiple human demonstrations.
