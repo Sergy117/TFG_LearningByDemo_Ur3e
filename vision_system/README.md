@@ -9,7 +9,7 @@ Licensed by: Santiago de Compostela University
 ![demoj_Hpm9b2og(2)](https://github.com/user-attachments/assets/72f40a9d-7ff2-4484-9ad2-afc4bc897b5c)
 
 --------------------
-1. Introduction
+# 1. Introduction
 --------------------
 This project implements a computer vision system using two Intel RealSense cameras
 to capture human demonstrations for Learning from Demonstration (LfD). It tracks
@@ -33,7 +33,7 @@ The system utilizes the following key libraries:
 - Ultralytics YOLO: For training the object detector (inference uses OpenCV DNN).
 
 --------------------
-2. Prerequisites
+# 2. Prerequisites
 --------------------
 
 Before running the main script (`main_script_clean.py`), ensure the following prerequisites are met:
@@ -66,7 +66,7 @@ Before running the main script (`main_script_clean.py`), ensure the following pr
     - The main script (`main_script_clean.py`) loads these files to calculate the projection matrices (P1, P2) needed for `cv2.triangulatePoints`. Ensure the path in the main script points to the correct location of these `.npy` files.
 
 --------------------
-3. Configuration
+# 3. Configuration
 --------------------
 
 Before running `main_script_clean.py`, verify the following configuration variables near the beginning of the script:
@@ -82,7 +82,7 @@ Before running `main_script_clean.py`, verify the following configuration variab
 * `calibration_dir`: Path to the directory containing the camera calibration `.npy` files.
 
 --------------------
-4. Running the Main Script
+# 4. Running the Main Script
 --------------------
 
 1.  Ensure all prerequisites (Hardware, Software, **Calibration**) are met.
@@ -100,7 +100,7 @@ Before running `main_script_clean.py`, verify the following configuration variab
 10. Press 'q' (with one of the OpenCV windows active) to stop the script. Any data in the active trajectory buffer will be saved as a final segment.
 
 --------------------
-5. Understanding the Output
+# 5. Understanding the Output
 --------------------
 
 * **Live Visualizations:** The 2D and 3D windows provide real-time feedback on what the system is detecting and tracking.
@@ -114,7 +114,7 @@ Before running `main_script_clean.py`, verify the following configuration variab
     * **CSV Content:** Each file contains the 3D coordinates (x, y, z) of the specified joint over time during that action segment, with one row per frame and a header 'x,y,z'.
 
 -------------------------------------------------
-6. Optional: Fine-tuning YOLO for Custom Objects
+# 6. Optional: Fine-tuning YOLO for Custom Objects
 -------------------------------------------------
 
 This system uses a fine-tuned YOLOv8 model (exported to ONNX) for object detection. If you need to detect a different object or improve detection for the current one, you need to re-train/fine-tune the model.
@@ -195,7 +195,7 @@ This system uses a fine-tuned YOLOv8 model (exported to ONNX) for object detecti
         * Update `COLORS_YOLO` generation if the number of classes changed.
 
 --------------------
-7. Utilities
+# 7. Utilities
 --------------------
 
 * **`vision_utils.py`:** Contains the core helper functions for detection, tracking, geometry, etc.
