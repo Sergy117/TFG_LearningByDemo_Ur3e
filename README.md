@@ -70,9 +70,9 @@ TFG_UR3e_Teleoperation/
 │                                                                           
 └── documentation/       
     └── (Images, GIFs, and other resources for the TFG document).   
----
-## Getting Started
 
+## Getting Started
+---
 To replicate this project, follow the steps in order. All subdirectories have their own README.
 
 1. Clone the Repository:
@@ -109,7 +109,7 @@ cd TFG_UR3e_Teleoperation
     Run the robot_player_from_dmp.py script to have the robot reproduce the learned task.
 ---
 ## Author
----
+
 Sergio González Rodríguez
 
     Email: meanssergy@gmail.com
