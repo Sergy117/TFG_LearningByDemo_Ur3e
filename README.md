@@ -17,6 +17,7 @@ The primary goal is to develop and validate a robust kinematic mapping pipeline 
 * **Custom Object Detection**: Integrates a custom-trained YOLOv8 model, exported to the ONNX format, for detecting task-relevant objects.
 
 **WHOLE VISION SYSTEM WORKING GIF**
+
 ![demoj_Hpm9b2og(2)](https://github.com/user-attachments/assets/9c0ac0f2-b11f-49a4-9c66-77ac8f5d0a7b)
 
 * **Human-to-Robot Kinematic Mapping**: A "translator" that converts the human operator's pose into robot joint angles, resolving morphological and coordinate system differences.
@@ -44,7 +45,7 @@ Stereo Cameras → 1. Vision Node (3D Capture & Triangulation) → 2. Offline Le
 3. Robot Control (robot_control/): Loads the learned DMPs and uses them to generate and execute trajectories on the robot via MoveIt.
 
 ## Repository Structure
----
+
 TFG_UR3e_Teleoperation/ 
 |       
 ├──  README.md              # <-- This main README file.      
@@ -72,7 +73,7 @@ TFG_UR3e_Teleoperation/
     └── (Images, GIFs, and other resources for the TFG document).   
 
 ## Getting Started
----
+
 To replicate this project, follow the steps in order. All subdirectories have their own README.
 
 1. Clone the Repository:
@@ -107,7 +108,7 @@ cd TFG_UR3e_Teleoperation
     Launch the simulation in RViz or the connection to the real robot.
 
     Run the robot_player_from_dmp.py script to have the robot reproduce the learned task.
----
+
 ## Author
 
 Sergio González Rodríguez
