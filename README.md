@@ -81,29 +81,29 @@ To replicate this project, follow the steps in order. All subdirectories have th
 git clone [URL-to-your-repository]
 cd TFG_UR3e_Teleoperation
 ```
-2. Install Dependencies: Install the required libraries as specified in the various requirements.txt files within the subdirectories.
+2. **Install Dependencies**: Install the required libraries as specified in the various requirements.txt files within the subdirectories.
 
-3. Calibration (See auxiliary_tools/):
+3. **Calibration** (See auxiliary_tools/):
 
-    Step 1: Run the script in 1_camera_calibration to calibrate the stereo system.
+    **Step 1**: Run the script in 1_camera_calibration to calibrate the stereo system.
 
-    Step 2: Run the scripts in 2_hand_eye_calibration to get the transformation between the camera and the robot.
+    **Step 2**: Run the scripts in 2_hand_eye_calibration to get the transformation between the camera and the robot.
 
-4. Object Detector Training (See auxiliary_tools/):
+4. **Object Detector Training** (See auxiliary_tools/):
 
     Follow the instructions in the 3_yolo_training/README.md to capture images, annotate them, and train your .onnx model.
 
-5. Create Demonstration Dataset (See vision_system/):
+5. **Create Demonstration Dataset** (See vision_system/):
 
     Run the main vision script to record a set of task demonstrations.
 
-6. Learn the Model (See learning_and_validation/):
+6. **Learn the Model** (See learning_and_validation/):
 
     Use the validation script to inspect the quality of your demonstrations.
 
     Run the learn_dmp.py script to process the dataset and train the DMP models.
 
-7. Execute on Robot (See robot_control/):
+7. **Execute on Robot** (See robot_control/):
 
     Launch the simulation in RViz or the connection to the real robot.
 
