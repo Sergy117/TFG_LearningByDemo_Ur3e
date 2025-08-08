@@ -76,18 +76,20 @@ TFG_UR3e_Teleoperation/
 
 To replicate this project, follow the steps in order. All subdirectories have their own README.
 
-1. Clone the Repository:
+1. **Clone the Repository**:
 ```sh
 git clone [URL-to-your-repository]
 cd TFG_UR3e_Teleoperation
 ```
 2. **Install Dependencies**: Install the required libraries as specified in the various requirements.txt files within the subdirectories.
 
+If you only want to only reproduce the dmp learned, go to step 7, Execute on Robot
+
 3. **Calibration** (See auxiliary_tools/):
 
-    **Step 1**: Run the script in 1_camera_calibration to calibrate the stereo system.
+    **Step 1**: Run the script in cam_cal/Calibrationtereo.py to calibrate the stereo system.
 
-    **Step 2**: Run the scripts in 2_hand_eye_calibration to get the transformation between the camera and the robot.
+    **Step 2**: Run the scripts in hand_eye_calibration to get the transformation between the camera and the robot.
 
 4. **Object Detector Training** (See auxiliary_tools/):
 
@@ -107,7 +109,27 @@ cd TFG_UR3e_Teleoperation
 
     Launch the simulation in RViz or the connection to the real robot.
 
-    Run the robot_player_from_dmp.py script to have the robot reproduce the learned task.
+    1. Launch conection with robot. Robot stopped but powered on
+```sh
+roslaunch ur_robot_driver ur3e_bringup.launch robot_ip:=172.22.24.161
+```
+    if it is the simulated robot, use instead
+```sh
+roslaunch ur3e_moveit_config demo.launch
+```
+    2. Launch the planifier, after unlocked robot motors and initiated external control in UR3e
+```sh
+roslaunch ur3e_moveit_config moveit_planning_execution.launch
+```
+    3. Launch Rviz for visualization (Optional)
+```sh
+roslaunch ur3e_moveit_config moveit_rviz.launch
+```
+    4. Launch ROS package that moves the robot
+```sh
+rosrun ur3e_control robot_player_from_dmp.py 
+```
+
 
 ## Author
 
