@@ -16,7 +16,7 @@ The primary goal is to develop and validate a robust kinematic mapping pipeline 
 
 * **Custom Object Detection**: Integrates a custom-trained YOLOv8 model, exported to the ONNX format, for detecting task-relevant objects.
 
-**WHOLE VISION SYSTEM WORKING GIF**
+
 
 ![demoj_Hpm9b2og(2)](https://github.com/user-attachments/assets/9c0ac0f2-b11f-49a4-9c66-77ac8f5d0a7b)
 
@@ -53,10 +53,10 @@ TFG_UR3e_Teleoperation/
 |   
 ├── robot_control/   
 │   └── src/                 # ROS scripts for controlling the robot (e.g., dmpplayer.py).  
-|                  
+|                   
 ├── vision_system/   
 │   └── src/                 # Scripts for capturing demonstrations (e.g., main_script_final.py).   
-|                               
+|                        
 ├── learning_and_validation/                     
 │   └── src/                 # Scripts to validate data and train DMPs (e.g., learn_dmp.py).
 |                                       
