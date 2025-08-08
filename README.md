@@ -113,7 +113,7 @@ If you only want to only reproduce the dmp learned, go to step 7, Execute on Rob
     ```sh
     roslaunch ur_robot_driver ur3e_bringup.launch robot_ip:=172.22.24.161
     ```
-        if it is the simulated robot, use instead
+    if it is the simulated robot, use instead only the next command and  the planifier, it will launch all
     ```sh
     roslaunch ur3e_moveit_config demo.launch
     ```
