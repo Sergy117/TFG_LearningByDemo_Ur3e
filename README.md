@@ -106,7 +106,7 @@ If you only want to only reproduce the dmp learned, go to step 7, Execute on Rob
     Run the learn_dmp.py script to process the dataset and train the DMP models.
 
 7. **Execute on Robot** (See robot_control/):
-
+    (Setup in your ROS Enviroment, get the universal robot packages in https://github.com/UniversalRobots/Universal_Robots_ROS_Driver )
     Launch the simulation in RViz or the connection to the real robot.
 
     1. Launch conection with robot. Robot stopped but powered on
