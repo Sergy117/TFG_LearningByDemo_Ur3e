@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+"""This script is for getting the transformation between human world to robot world in terms of coordinates """
 import numpy as np
 import cv2
 import os
