@@ -35,8 +35,6 @@ GRIPPER_PIN = 0
 GRIPPER_STATE_OPEN = 0.0
 GRIPPER_STATE_CLOSE = 1.0
 
-
-# --- Funciones (control_gripper y go_to_joint_state sin cambios) ---
 def control_gripper(pin, state):
     rospy.loginfo(f"Intentando establecer pin {pin} a {state} para el gripper...")
     try:
@@ -190,7 +188,6 @@ if __name__ == '__main__':
                     clipped_target = clip_joint_angles(final_joint_target, active_joint_names, UR3E_JOINT_LIMITS)
                     if not go_to_joint_state(move_group, clipped_target, wait=True):
                         rospy.logwarn("Fallo al ejecutar la rotación pura de muñeca. Abortando."); break
-            # --- <<< FIN DEL BLOQUE MODIFICADO >>> ---
 
             rospy.loginfo(f"Fase '{phase_name}' completada.")
             # Actualizar el estado actual del robot para la siguiente fase
